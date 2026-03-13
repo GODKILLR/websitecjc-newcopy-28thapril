@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import adventureBanner from "@/assets/adventure-banner.jpg";
 import nftBanner from "@/assets/nft-banner.jpg";
 import leagueBanner from "@/assets/league-banner.jpg";
-import communityBanner from "@/assets/community-banner.jpg";
 
 const sections = [
   {
@@ -26,14 +25,6 @@ const sections = [
     desc: "League Challenges are exclusive to members and offer competitive gameplay across short, medium, and long distances. Rise through the ranks.",
     img: leagueBanner,
     cta: { label: "Join League", href: "https://www.cjcrace.io/gameinfo" },
-  },
-  {
-    tag: "COMMUNITY",
-    title: "A Community Like No Other",
-    desc: "Join a vibrant community of racers. From competitive events to collaborative challenges, connect with players around the world who share your passion.",
-    img: communityBanner,
-    cta: { label: "Join Discord", href: "#" },
-    reverse: true,
   },
 ];
 

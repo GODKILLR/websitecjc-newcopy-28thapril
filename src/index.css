@@ -86,4 +86,132 @@
   .section-fade {
     background: linear-gradient(180deg, transparent 0%, hsl(var(--background)) 100%);
   }
+
+  /* Horse racing themed animations */
+  .horse-gallop {
+    animation: gallop 0.6s ease-in-out infinite;
+  }
+
+  @keyframes gallop {
+    0%, 100% { transform: translateY(0) scaleY(1); }
+    25% { transform: translateY(-3px) scaleY(0.95); }
+    50% { transform: translateY(0) scaleY(1); }
+    75% { transform: translateY(-2px) scaleY(0.97); }
+  }
+
+  .particle-float {
+    animation: particle-float 3s ease-in-out infinite;
+  }
+
+  @keyframes particle-float {
+    0%, 100% { transform: translateY(0) opacity(0.5); }
+    50% { transform: translateY(-10px) opacity(1); }
+  }
+
+  .flag-wave {
+    animation: flag-wave 2s ease-in-out infinite;
+  }
+
+  @keyframes flag-wave {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+
+  .hoof-print-burst {
+    animation: hoof-burst 0.4s ease-out forwards;
+  }
+
+  @keyframes hoof-burst {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+
+  .silk-underline {
+    position: relative;
+  }
+
+  .silk-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--gold-light)), hsl(var(--gold-dark)));
+    transition: width 0.3s ease;
+  }
+
+  .silk-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Racing number input style */
+  .racing-input {
+    @apply bg-card/40 border border-border/50 rounded-lg px-4 py-2 text-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all font-display tracking-wider;
+  }
+
+  /* Track progress bar */
+  .track-progress {
+    @apply relative h-2 bg-card/40 rounded-full overflow-hidden;
+  }
+
+  .track-progress-fill {
+    @apply absolute inset-y-0 left-0 gradient-gold transition-all duration-500 ease-out;
+  }
+
+  /* Parallax container */
+  .parallax-container {
+    perspective: 1000px;
+    overflow: hidden;
+  }
+
+  .parallax-layer {
+    transform-style: preserve-3d;
+  }
+
+  /* Custom cursor */
+  .cursor-horseshoe {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23F4B84A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C12 2 8 6 8 12C8 17 10 21 12 21C14 21 16 17 16 12C16 6 12 2 12 2Z"/></svg>') 12 12, pointer;
+  }
+
+  /* Golden particle trail effect container */
+  .particle-trail-container {
+    position: relative;
+    overflow: visible;
+  }
+
+  /* Sweep flag transition */
+  .sweep-flag {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sweep-flag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .sweep-flag:hover::before {
+    left: 100%;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .horse-gallop,
+  .particle-float,
+  .flag-wave,
+  .hoof-print-burst {
+    animation: none;
+  }
+
+  .silk-underline::after {
+    transition: none;
+  }
 }
