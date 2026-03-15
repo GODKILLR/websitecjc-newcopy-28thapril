@@ -6,8 +6,8 @@ import logo from "@/assets/cjc-logo.png";
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Game Info", href: "#game-info" },
+  { label: "How to Play", href: "#how-to-play" },
   { label: "Marketplace", href: "https://market.cjcrace.io", external: true },
-  { label: "News", href: "#roadmap" },
   { label: "WhitePaper", href: "https://docs.cjcrace.io/cjc-race-white-paper", external: true },
 ];
 

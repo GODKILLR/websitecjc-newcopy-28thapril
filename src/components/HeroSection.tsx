@@ -63,7 +63,7 @@ const HeroSection = () => {
           className="inline-block"
         >
           <span className="font-display text-xs tracking-[0.4em] text-primary uppercase mb-4 block">
-            Blockchain Horse Racing
+            Skill-Based Horse Racing
           </span>
         </motion.div>
 
@@ -71,18 +71,27 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider text-gradient-gold mb-6 sweep-flag"
+          className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider text-gradient-gold mb-4 sweep-flag"
         >
           CJC RACE
         </motion.h1>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35 }}
+          className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide text-foreground/90 mb-6"
+        >
+          OWN A <span className="text-primary">RACEHORSE</span>. RACE IT AGAINST THE <span className="text-primary">WORLD</span>.
+        </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-lg sm:text-xl md:text-2xl text-foreground/80 font-body max-w-2xl mx-auto mb-10 font-light tracking-wide"
+          className="text-base sm:text-lg md:text-xl text-foreground/70 font-body max-w-2xl mx-auto mb-10 font-light tracking-wide"
         >
-          Race, Earn & Conquer — The Future of Horse Racing on Blockchain
+          Master gate timing, manage stamina, outrace real players — and win real rewards.
         </motion.p>
 
         <motion.div
@@ -95,13 +104,13 @@ const HeroSection = () => {
             href="https://www.cjcrace.io/download"
             target="_blank"
             rel="noopener noreferrer"
-            className="gradient-gold text-primary-foreground font-display text-sm tracking-widest px-8 py-3.5 rounded-lg hover:opacity-90 transition-opacity uppercase glow-gold group relative overflow-hidden"
+            className="font-display text-sm tracking-widest px-10 py-4 rounded-lg hover:opacity-90 transition-all uppercase glow-gold group relative overflow-hidden"
+            style={{ background: 'linear-gradient(135deg, #059669, #10B981)', color: '#ffffff' }}
           >
-            <span className="relative z-10">Play Now</span>
-            {/* Hoof print burst effect on hover */}
+            <span className="relative z-10">Start Racing Free</span>
             <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <motion.span
-                className="w-full h-full bg-primary/20"
+                className="w-full h-full bg-white/10"
                 initial={{ scale: 0, opacity: 0 }}
                 whileHover={{ scale: 1.5, opacity: 1 }}
                 transition={{ duration: 0.3 }}
@@ -115,6 +124,14 @@ const HeroSection = () => {
             className="glass-card text-foreground font-display text-sm tracking-widest px-8 py-3.5 rounded-lg hover:border-primary/50 transition-colors uppercase silk-underline"
           >
             Marketplace
+          </a>
+          <a
+            href="https://www.cjcrace.io/download"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gradient-gold text-primary-foreground font-display text-sm tracking-widest px-8 py-3.5 rounded-lg hover:opacity-90 transition-opacity uppercase"
+          >
+            Download Game
           </a>
         </motion.div>
       </div>
