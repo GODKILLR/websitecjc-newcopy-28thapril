@@ -214,7 +214,8 @@ const HowToPlay = () => {
                 <div className="text-center mb-8">
                   <Calculator className="w-8 h-8 text-primary mx-auto mb-4" />
                   <h3 className="font-display text-xl font-bold mb-2">Attribute Matcher</h3>
-                  <p className="text-sm text-foreground/60">Select race conditions to see attribute requirements</p>
+                  <p className="text-sm text-foreground/60 mb-3">Different races reward different horse builds. Use this tool to find which attributes matter most for your next race conditions.</p>
+                  <p className="text-sm text-foreground/50"><span className="text-primary font-semibold">How it works:</span> Select your race distance, direction, weather and track type, the tool tells you which horse attributes (Speed, Burst, Stamina) to prioritise when picking or upgrading your horse.</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-8">

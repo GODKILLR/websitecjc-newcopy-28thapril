@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Crown, Zap, Star, Shield, Sparkles, ArrowRight, ChevronRight } from "lucide-react";
-import adventureBanner from "@/assets/adventure-banner.jpg";
+import adventureBanner from "@/assets/gameplay-bg.jpg";
 import nftBanner from "@/assets/nft-banner.jpg";
 import leagueBanner from "@/assets/league-banner.jpg";
 
@@ -152,14 +152,11 @@ const StableSection = () => (
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="font-display text-xs tracking-[0.3em] text-primary uppercase">
-              Your Stable
-            </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-4 tracking-wide">
-              Build Your Stable
+              Build Your Team
             </h2>
             <p className="text-foreground/70 text-sm md:text-base max-w-md leading-relaxed mb-6">
-              Every horse tells a story — every upgrade changes the race.
+              Every horse tells a story, every upgrade changes the race.
               Collect, customize and compete across{' '}
               <span className="text-primary font-semibold">6 rarity tiers</span> with
               unique attributes that shape your strategy.
@@ -231,7 +228,7 @@ const StableSection = () => (
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 gradient-gold text-primary-foreground font-display text-xs tracking-widest px-6 py-3 rounded-lg hover:opacity-90 transition-opacity uppercase group"
               >
-                Explore Your Stable
+                Build Your Team
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
@@ -324,9 +321,9 @@ const standardSections = [
   {
     tag: "LEAGUE",
     title: "Compete in League Challenges",
-    desc: "League Challenges are exclusive to members and offer competitive gameplay across short, medium, and long distances. Rise through the ranks.",
+    desc: "League Challenges offer competitive races across short, medium, and long distances, exclusive to members. Reach the top tiers to enter Championship Stakes, with $1,000 distributed daily to the highest-ranked players.",
     img: leagueBanner,
-    cta: { label: "Join League", href: "https://www.cjcrace.io/gameinfo" },
+    cta: { label: "Play Now", href: "https://www.cjcrace.io/gameinfo" },
   },
 ];
 
@@ -345,18 +342,18 @@ const CinematicSections = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="container max-w-lg ml-8 md:ml-24"
+            className="container max-w-lg ml-8 md:ml-24 pointer-events-auto select-text"
           >
-            <span className="font-display text-xs tracking-[0.3em] text-primary uppercase">{standardSections[0].tag}</span>
-            <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-4 tracking-wide">
+            <span className="font-display text-xs tracking-[0.3em] text-primary uppercase select-text">{standardSections[0].tag}</span>
+            <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-4 tracking-wide select-text">
               {standardSections[0].title}
             </h2>
-            <p className="text-foreground/70 text-base md:text-lg mb-6 leading-relaxed">{standardSections[0].desc}</p>
+            <p className="text-foreground/70 text-base md:text-lg mb-6 leading-relaxed select-text">{standardSections[0].desc}</p>
             <a
               href={standardSections[0].cta.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block glass-card px-6 py-3 font-display text-sm tracking-widest text-primary border-primary/40 hover:bg-primary/10 transition-colors uppercase"
+              className="inline-block glass-card px-6 py-3 font-display text-sm tracking-widest text-primary border-primary/40 hover:bg-primary/10 transition-colors uppercase select-none"
             >
               {standardSections[0].cta.label}
             </a>

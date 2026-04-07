@@ -45,9 +45,7 @@ const FarmPreview = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="font-display text-xs tracking-[0.3em] text-emerald-400 uppercase mb-4 block">
-            Mini-Game
-          </span>
+
           <h2 className="font-display text-3xl md:text-5xl font-bold text-gradient-gold mb-4">
             The Farm
           </h2>
