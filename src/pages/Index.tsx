@@ -8,6 +8,8 @@ import WalletPreview from "@/components/WalletPreview";
 import DaySpa from "@/components/DaySpa";
 import FarmPreview from "@/components/FarmPreview";
 import ReferAndEarn from "@/components/ReferAndEarn";
+import AmbassadorPreview from "@/components/AmbassadorPreview";
+import RoadmapSection from "@/components/RoadmapSection";
 import CommunitySection from "@/components/CommunitySection";
 import FooterSection from "@/components/FooterSection";
 import LoadingScreen from "@/components/LoadingScreen";
@@ -31,6 +33,8 @@ const Index = () => {
         <DaySpa />
         <FarmPreview />
         <ReferAndEarn />
+        <AmbassadorPreview />
+        <RoadmapSection />
         <CommunitySection />
         <FooterSection />
       </div>

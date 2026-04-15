@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, Wallet } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/cjc-logo.png";
 
 const navLinks = [
@@ -36,15 +37,24 @@ const Navbar = () => {
           ))}
         </div>
 
-        <a
-          href="https://www.cjcrace.io/download"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-2 gradient-gold text-primary-foreground font-display text-sm tracking-wider px-6 py-2.5 rounded-lg hover:opacity-90 transition-opacity uppercase"
-        >
-          <Download className="w-4 h-4" />
-          Download
-        </a>
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="https://market.cjcrace.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 border border-primary/40 text-primary font-display text-sm tracking-wider px-5 py-2.5 rounded-lg hover:bg-primary/10 transition-colors uppercase"
+          >
+            <Wallet className="w-4 h-4" />
+            Connect Wallet
+          </a>
+          <Link
+            to="/download"
+            className="flex items-center gap-2 gradient-gold text-primary-foreground font-display text-sm tracking-wider px-6 py-2.5 rounded-lg hover:opacity-90 transition-opacity uppercase"
+          >
+            <Download className="w-4 h-4" />
+            Download
+          </Link>
+        </div>
 
         {/* Mobile toggle */}
         <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
@@ -74,14 +84,22 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="https://www.cjcrace.io/download"
+                href="https://market.cjcrace.io"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 gradient-gold text-primary-foreground font-display text-sm tracking-wider px-6 py-2.5 rounded-lg mt-2 uppercase"
+                className="flex items-center justify-center gap-2 border border-primary/40 text-primary font-display text-sm tracking-wider px-6 py-2.5 rounded-lg mt-2 uppercase"
+              >
+                <Wallet className="w-4 h-4" />
+                Connect Wallet
+              </a>
+              <Link
+                to="/download"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-2 gradient-gold text-primary-foreground font-display text-sm tracking-wider px-6 py-2.5 rounded-lg uppercase"
               >
                 <Download className="w-4 h-4" />
                 Download Game
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

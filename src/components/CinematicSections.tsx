@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Crown, Zap, Star, Shield, Sparkles, ArrowRight, ChevronRight } from "lucide-react";
 import adventureBanner from "@/assets/gameplay-bg.jpg";
 import nftBanner from "@/assets/nft-banner.jpg";
@@ -316,7 +317,7 @@ const standardSections = [
     title: "The Thrill of the Track",
     desc: "Race against real players to earn CJC coins, badges and other rewards. Control your Jockey in-game, match attributes, and use in-game props to secure victory.",
     img: adventureBanner,
-    cta: { label: "Learn More", href: "https://www.cjcrace.io/gameinfo" },
+    cta: { label: "Learn More", href: "/game-modes", internal: true },
   },
   {
     tag: "LEAGUE",
@@ -349,14 +350,12 @@ const CinematicSections = () => {
               {standardSections[0].title}
             </h2>
             <p className="text-foreground/70 text-base md:text-lg mb-6 leading-relaxed select-text">{standardSections[0].desc}</p>
-            <a
-              href={standardSections[0].cta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block glass-card px-6 py-3 font-display text-sm tracking-widest text-primary border-primary/40 hover:bg-primary/10 transition-colors uppercase select-none"
+            <Link
+              to={standardSections[0].cta.href}
+              className="inline-block gradient-gold px-6 py-3 font-display text-sm tracking-widest text-primary-foreground rounded-lg hover:opacity-90 transition-opacity uppercase select-none"
             >
               {standardSections[0].cta.label}
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

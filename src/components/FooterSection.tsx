@@ -100,8 +100,10 @@ const FooterSection = () => {
           <div>
             <h4 className="font-display text-xs tracking-[0.2em] text-primary uppercase mb-4">Legal</h4>
             <div className="flex flex-col gap-2">
-              <a href="https://www.cjcrace.io/term/terms-of-use" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors text-sm">Terms of Use</a>
-              <a href="https://www.cjcrace.io/term/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors text-sm">Privacy Policy</a>
+              <Link to="/privacy-policy" className="text-foreground/60 hover:text-primary transition-colors text-sm">Privacy Policy</Link>
+              <Link to="/terms" className="text-foreground/60 hover:text-primary transition-colors text-sm">Terms and Conditions</Link>
+              <Link to="/risk-disclaimer" className="text-foreground/60 hover:text-primary transition-colors text-sm">Risk Disclaimer</Link>
+              <Link to="/brand-assets" className="text-foreground/60 hover:text-primary transition-colors text-sm">Brand Assets</Link>
             </div>
           </div>
         </div>
