@@ -96,18 +96,18 @@ const NFTShowcase = () => {
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex justify-center gap-2 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-display text-sm tracking-wider transition-all ${
+              className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-display text-xs sm:text-sm tracking-wider transition-all ${
                 activeTab === tab.id
                   ? "gradient-gold text-primary-foreground"
                   : "glass-card text-foreground/70 hover:text-foreground"
               }`}
             >
-              <tab.icon className="w-4 h-4" />
+              <tab.icon className="w-4 h-4 shrink-0" />
               {tab.label}
             </button>
           ))}
@@ -123,49 +123,69 @@ const NFTShowcase = () => {
               exit={{ opacity: 0, y: -20 }}
               className="max-w-4xl mx-auto"
             >
-              <div className="glass-card p-8 md:p-12 relative overflow-hidden">
+              <div className="glass-card p-6 sm:p-8 md:p-12 relative overflow-hidden">
                 {/* Animated Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${rarityBg[featuredNFT.rarity]} opacity-50`} />
 
-                <div className="relative grid md:grid-cols-2 gap-8 items-center">
+                <div className="relative grid md:grid-cols-2 gap-6 md:gap-8 items-center">
                   {/* NFT Display */}
                   <div className="relative">
                     <motion.div
                       key={featuredNFT.id}
+                      drag="x"
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={0.2}
+                      onDragEnd={(_, info) => {
+                        setAutoPlay(false);
+                        if (info.offset.x < -60) nextNFT();
+                        else if (info.offset.x > 60) prevNFT();
+                      }}
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.4 }}
-                      className="aspect-square glass-card rounded-2xl flex items-center justify-center text-8xl relative overflow-hidden"
+                      className="aspect-square glass-card rounded-2xl flex items-center justify-center text-7xl sm:text-8xl relative overflow-hidden touch-pan-y cursor-grab active:cursor-grabbing select-none"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
                       <motion.span
                         animate={{ y: [0, -10, 0] }}
                         transition={{ duration: 3, repeat: Infinity }}
+                        className="pointer-events-none"
                       >
                         {featuredNFT.image}
                       </motion.span>
 
                       {/* Badge */}
-                      <div className={`absolute top-4 right-4 px-3 py-1 rounded-full border ${rarityColors[featuredNFT.rarity]} bg-card/80 text-xs font-display`}>
+                      <div className={`absolute top-4 right-4 px-3 py-1 rounded-full border ${rarityColors[featuredNFT.rarity]} bg-card/80 text-xs font-display pointer-events-none`}>
                         {featuredNFT.rarity}
                       </div>
                     </motion.div>
 
                     {/* Navigation */}
-                    <div className="flex justify-center gap-2 mt-4">
-                      <button onClick={prevNFT} className="p-2 rounded-full glass-card hover:border-primary/50 transition-colors">
+                    <div className="flex justify-center items-center gap-2 mt-4">
+                      <button
+                        onClick={prevNFT}
+                        aria-label="Previous NFT"
+                        className="p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full glass-card hover:border-primary/50 transition-colors"
+                      >
                         <ChevronLeft className="w-5 h-5" />
                       </button>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center">
                         {mockNFTs.featured.map((_, i) => (
                           <button
                             key={i}
                             onClick={() => { setAutoPlay(false); setCurrentIndex(i); }}
-                            className={`w-2 h-2 rounded-full transition-all ${i === currentIndex ? "bg-primary w-6" : "bg-foreground/20"}`}
-                          />
+                            aria-label={`Go to NFT ${i + 1}`}
+                            className="p-2 group"
+                          >
+                            <span className={`block h-2 rounded-full transition-all ${i === currentIndex ? "bg-primary w-6" : "bg-foreground/20 w-2 group-hover:bg-foreground/40"}`} />
+                          </button>
                         ))}
                       </div>
-                      <button onClick={nextNFT} className="p-2 rounded-full glass-card hover:border-primary/50 transition-colors">
+                      <button
+                        onClick={nextNFT}
+                        aria-label="Next NFT"
+                        className="p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full glass-card hover:border-primary/50 transition-colors"
+                      >
                         <ChevronRight className="w-5 h-5" />
                       </button>
                     </div>
@@ -200,10 +220,10 @@ const NFTShowcase = () => {
                     </div>
 
                     {/* Price */}
-                    <div className="flex items-center justify-between p-4 glass-card rounded-xl mb-6">
-                      <div>
+                    <div className="flex flex-wrap items-center justify-between gap-3 p-4 glass-card rounded-xl mb-6">
+                      <div className="min-w-0">
                         <p className="text-xs text-foreground/50 mb-1">Current Price</p>
-                        <p className="text-2xl font-display font-bold text-gradient-gold">
+                        <p className="text-xl sm:text-2xl font-display font-bold text-gradient-gold whitespace-nowrap">
                           {featuredNFT.price.toLocaleString()} {featuredNFT.currency}
                         </p>
                       </div>
@@ -287,23 +307,23 @@ const NFTShowcase = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="flex items-center gap-4 p-4 border-b border-border/30 last:border-0 hover:bg-card/40 transition-colors cursor-pointer group"
+                    className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 border-b border-border/30 last:border-0 hover:bg-card/40 transition-colors cursor-pointer group"
                   >
-                    <div className="w-16 h-16 rounded-lg bg-card/60 flex items-center justify-center text-2xl">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-card/60 flex items-center justify-center text-xl sm:text-2xl shrink-0">
                       {nft.image}
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <p className="font-display text-sm">{nft.name}</p>
-                        <span className={`text-xs px-1.5 py-0.5 rounded border ${rarityColors[nft.rarity]}`}>{nft.rarity}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <p className="font-display text-sm truncate">{nft.name}</p>
+                        <span className={`text-xs px-1.5 py-0.5 rounded border ${rarityColors[nft.rarity]} shrink-0`}>{nft.rarity}</span>
                       </div>
-                      <p className="text-xs text-foreground/50">{nft.type} • Listed {nft.listed}</p>
+                      <p className="text-xs text-foreground/50 truncate">{nft.type} • Listed {nft.listed}</p>
                     </div>
-                    <div className="text-right">
-                      <p className="font-display font-bold text-primary">{nft.price} {nft.currency}</p>
+                    <div className="text-right shrink-0">
+                      <p className="font-display font-bold text-primary text-sm sm:text-base whitespace-nowrap">{nft.price} {nft.currency}</p>
                       <p className="text-xs text-foreground/40">~${(nft.price * 0.15).toFixed(2)}</p>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-foreground/30 group-hover:text-primary transition-colors" />
+                    <ExternalLink className="hidden sm:block w-4 h-4 text-foreground/30 group-hover:text-primary transition-colors shrink-0" />
                   </motion.div>
                 ))}
               </div>

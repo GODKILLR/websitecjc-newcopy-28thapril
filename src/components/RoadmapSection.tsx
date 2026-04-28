@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
 
-import roadmapQ2 from "@/assets/adventure-banner.jpg";
-import roadmapQ3 from "@/assets/league-banner.jpg";
-import roadmapQ4 from "@/assets/nft-banner.jpg";
-import roadmapH1 from "@/assets/gameplay-bg.jpg";
+import roadmapQ2 from "@/assets/adventure-banner.webp";
+import roadmapQ3 from "@/assets/league-banner.webp";
+import roadmapQ4 from "@/assets/nft-banner.webp";
+import roadmapH1 from "@/assets/gameplay-bg.webp";
 
 const milestones = [
   {
@@ -132,12 +132,11 @@ const RoadmapSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className={`relative flex-shrink-0 w-[280px] md:w-[300px] rounded-xl border overflow-hidden snap-start ${
+              className={`relative flex-shrink-0 w-[85vw] max-w-[300px] sm:w-[280px] md:w-[300px] min-h-[360px] md:min-h-[380px] rounded-xl border overflow-hidden snap-start ${
                 m.status === "current"
                   ? "border-primary/50"
                   : "border-border/30"
               }`}
-              style={{ minHeight: "380px" }}
             >
               {/* Background image or dark gradient */}
               <div className="absolute inset-0">
@@ -147,6 +146,8 @@ const RoadmapSection = () => {
                       src={m.img}
                       alt={m.period}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30" />
                   </>

@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import logo from "@/assets/cjc-logo.png";
+import logo from "@/assets/cjc-logo.webp";
 import { Download, Check, X } from "lucide-react";
 
 const colors = [
@@ -58,6 +58,8 @@ const BrandAssets = () => {
                 src={logo}
                 alt="CJC Race Logo"
                 className="h-20 w-auto mb-4"
+                loading="lazy"
+                decoding="async"
               />
               <span className="text-foreground/40 text-xs">On dark background</span>
             </div>
@@ -67,6 +69,8 @@ const BrandAssets = () => {
                 src={logo}
                 alt="CJC Race Logo"
                 className="h-20 w-auto mb-4"
+                loading="lazy"
+                decoding="async"
               />
               <span className="text-black/40 text-xs">On light background</span>
             </div>

@@ -15,7 +15,7 @@ import {
   Zap,
   Globe,
 } from "lucide-react";
-import heroImg from "@/assets/gameplay-bg.jpg";
+import heroImg from "@/assets/gameplay-bg.webp";
 
 /* ── Platform data ───────────────────────────────────────────────────────── */
 const platforms = [
@@ -56,7 +56,7 @@ const platforms = [
     icon: Smartphone,
     tag: "iPhone / iPad",
     version: "v2.4.0",
-    size: "850 MB",
+    size: "2.8 GB",
     link: "https://apps.apple.com/app/cjc-race",
     color: "#F59E0B",
     requirements: [
@@ -121,6 +121,8 @@ const Download = () => {
           src={heroImg}
           alt="CJC Race"
           className="w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent" />
@@ -196,26 +198,6 @@ const Download = () => {
                 </a>
               </div>
 
-              {/* Requirements */}
-              <div className="border-t border-border/20 p-6 pt-4">
-                <p className="text-[10px] font-display tracking-widest text-foreground/30 uppercase mb-3">
-                  System Requirements
-                </p>
-                <ul className="space-y-2">
-                  {p.requirements.map((r) => (
-                    <li
-                      key={r}
-                      className="flex items-start gap-2 text-foreground/60 text-xs"
-                    >
-                      <Check
-                        className="w-3 h-3 mt-0.5 shrink-0"
-                        style={{ color: p.color }}
-                      />
-                      {r}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </motion.div>
           ))}
         </div>

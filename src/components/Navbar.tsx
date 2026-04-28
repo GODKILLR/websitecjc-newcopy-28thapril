@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download, Wallet } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import logo from "@/assets/cjc-logo.png";
+import logo from "@/assets/cjc-logo.webp";
 
 type NavLink = {
   label: string;
@@ -57,7 +57,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-0 border-b border-border/30">
       <div className="container flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0 })}>
-          <img src={logo} alt="CJC Race" className="h-10 md:h-12 w-auto" />
+          <img src={logo} alt="CJC Race" className="h-10 md:h-12 w-auto" width={48} height={48} decoding="async" />
         </Link>
 
         {/* Desktop */}
@@ -93,7 +93,12 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-foreground p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>

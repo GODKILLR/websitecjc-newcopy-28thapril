@@ -79,38 +79,38 @@ const LeaderboardSection = () => {
           </p>
 
           {/* Season Info */}
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            <div className="glass-card px-6 py-3 flex items-center gap-3">
-              <Trophy className="w-5 h-5 text-primary" />
-              <div className="text-left">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6">
+            <div className="glass-card px-4 sm:px-6 py-3 flex items-center gap-3 min-w-0">
+              <Trophy className="w-5 h-5 text-primary shrink-0" />
+              <div className="text-left min-w-0">
                 <p className="text-xs text-foreground/50">Current Season</p>
-                <p className="font-display text-sm">{mockLeaderboard.seasonName}</p>
+                <p className="font-display text-sm truncate">{mockLeaderboard.seasonName}</p>
               </div>
             </div>
-            <div className="glass-card px-6 py-3 flex items-center gap-3">
-              <Clock className="w-5 h-5 text-primary" />
+            <div className="glass-card px-4 sm:px-6 py-3 flex items-center gap-3 min-w-0">
+              <Clock className="w-5 h-5 text-primary shrink-0" />
               <div className="text-left">
                 <p className="text-xs text-foreground/50">Time Remaining</p>
-                <p className="font-display text-sm">{countdown.days}d {countdown.hours}h {countdown.minutes}m</p>
+                <p className="font-display text-sm whitespace-nowrap">{countdown.days}d {countdown.hours}h {countdown.minutes}m</p>
               </div>
             </div>
-            <div className="glass-card px-6 py-3 flex items-center gap-3">
-              <Medal className="w-5 h-5 text-primary" />
+            <div className="glass-card px-4 sm:px-6 py-3 flex items-center gap-3 min-w-0">
+              <Medal className="w-5 h-5 text-primary shrink-0" />
               <div className="text-left">
                 <p className="text-xs text-foreground/50">Total Prize Pool</p>
-                <p className="font-display text-sm text-gradient-gold">{(mockLeaderboard.totalPrize / 1000000).toFixed(2)}M CJC</p>
+                <p className="font-display text-sm text-gradient-gold whitespace-nowrap">{(mockLeaderboard.totalPrize / 1000000).toFixed(2)}M CJC</p>
               </div>
             </div>
           </div>
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex justify-center gap-2 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
           {["rankings", "rewards", "my-position"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2 rounded-lg font-display text-sm tracking-wider transition-all ${
+              className={`px-4 sm:px-6 py-2 rounded-lg font-display text-xs sm:text-sm tracking-wider transition-all ${
                 activeTab === tab
                   ? "gradient-gold text-primary-foreground"
                   : "glass-card text-foreground/70 hover:text-foreground"
@@ -131,8 +131,8 @@ const LeaderboardSection = () => {
             className="max-w-3xl mx-auto"
           >
             <div className="glass-card overflow-hidden">
-              {/* Table Header */}
-              <div className="grid grid-cols-12 gap-4 p-4 border-b border-border/30 text-xs text-foreground/50 uppercase tracking-wider">
+              {/* Table Header — desktop only */}
+              <div className="hidden md:grid grid-cols-12 gap-4 p-4 border-b border-border/30 text-xs text-foreground/50 uppercase tracking-wider">
                 <div className="col-span-1 text-center">#</div>
                 <div className="col-span-5">Player</div>
                 <div className="col-span-3 text-right">Points</div>
@@ -148,37 +148,38 @@ const LeaderboardSection = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}
-                    className={`grid grid-cols-12 gap-4 p-4 items-center hover:bg-card/40 transition-colors cursor-pointer group ${
+                    className={`grid grid-cols-[2rem_1fr_auto] md:grid-cols-12 gap-3 md:gap-4 p-3 md:p-4 items-center hover:bg-card/40 transition-colors cursor-pointer group ${
                       player.rank <= 3 ? "bg-primary/5" : ""
                     }`}
                   >
-                    <div className="col-span-1 text-center">
+                    <div className="md:col-span-1 text-center">
                       {player.rank === 1 && <Crown className="w-5 h-5 text-amber-400 mx-auto" />}
                       {player.rank === 2 && <Medal className="w-5 h-5 text-slate-400 mx-auto" />}
                       {player.rank === 3 && <Medal className="w-5 h-5 text-amber-600 mx-auto" />}
                       {player.rank > 3 && <span className="font-display text-foreground/50">{player.rank}</span>}
                     </div>
-                    <div className="col-span-5 flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-card/60 flex items-center justify-center text-lg">
+                    <div className="md:col-span-5 flex items-center gap-3 min-w-0">
+                      <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-card/60 flex items-center justify-center text-base md:text-lg shrink-0">
                         {player.avatar}
                       </div>
-                      <div>
-                        <p className="font-display text-sm">{player.name}</p>
+                      <div className="min-w-0 flex-1">
+                        <p className="font-display text-sm truncate">{player.name}</p>
                         {player.streak > 0 && (
                           <div className="flex items-center gap-1">
-                            <Flame className="w-3 h-3 text-orange-500" />
-                            <span className="text-xs text-orange-500">{player.streak} win streak</span>
+                            <Flame className="w-3 h-3 text-orange-500 shrink-0" />
+                            <span className="text-xs text-orange-500 truncate">{player.streak} win streak</span>
                           </div>
                         )}
                       </div>
                     </div>
-                    <div className="col-span-3 text-right font-display text-primary">
+                    <div className="md:col-span-3 text-right font-display text-primary text-sm md:text-base whitespace-nowrap">
                       {player.points.toLocaleString()}
+                      <span className="block md:hidden text-[11px] text-foreground/50 font-body">{player.wins} wins</span>
                     </div>
-                    <div className="col-span-2 text-right text-sm text-foreground/60">
+                    <div className="hidden md:block md:col-span-2 text-right text-sm text-foreground/60">
                       {player.wins}
                     </div>
-                    <div className="col-span-1 text-right">
+                    <div className="hidden md:block md:col-span-1 text-right">
                       <ChevronRight className="w-4 h-4 text-foreground/30 group-hover:text-primary transition-colors" />
                     </div>
                   </motion.div>
@@ -202,19 +203,19 @@ const LeaderboardSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="glass-card p-6 flex items-center gap-4"
+                  className="glass-card p-4 sm:p-6 flex items-center gap-3 sm:gap-4"
                 >
-                  <div className="text-3xl">{reward.badge}</div>
-                  <div className="flex-1">
-                    <p className="font-display text-lg">{reward.rank} Place</p>
-                    <div className="flex items-center gap-4 mt-2">
+                  <div className="text-2xl sm:text-3xl shrink-0">{reward.badge}</div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-display text-base sm:text-lg">{reward.rank} Place</p>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2">
                       <div className="flex items-center gap-2">
-                        <Star className="w-4 h-4 text-primary" />
-                        <span className="text-sm text-foreground/70">{reward.reward}</span>
+                        <Star className="w-4 h-4 text-primary shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground/70">{reward.reward}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Medal className="w-4 h-4 text-primary" />
-                        <span className="text-sm text-foreground/70">{reward.prize}</span>
+                        <Medal className="w-4 h-4 text-primary shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground/70">{reward.prize}</span>
                       </div>
                     </div>
                   </div>

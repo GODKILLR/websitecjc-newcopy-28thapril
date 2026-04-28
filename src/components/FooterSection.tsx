@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ShieldCheck } from "lucide-react";
 import { useEffect, useState } from "react";
-import logo from "@/assets/cjc-logo.png";
+import logo from "@/assets/cjc-logo.webp";
 
 // Live payout counter — starts at a base and increments every few seconds
 const useLivePayout = () => {
@@ -59,7 +59,7 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
           {/* Logo + tagline */}
           <div className="md:col-span-1">
-            <img src={logo} alt="CJC Race" className="h-14 w-auto mb-4" />
+            <img src={logo} alt="CJC Race" className="h-14 w-auto mb-4" loading="lazy" decoding="async" />
             <p className="text-muted-foreground text-sm leading-relaxed">
               The ultimate blockchain horse racing experience. Race, earn, and conquer.
             </p>

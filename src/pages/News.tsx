@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight, Newspaper, Megaphone, Trophy, Sparkles } from "lucide-react";
+import featuredImage from "@/assets/gameplay-bg.webp";
 
 const featuredPost = {
   category: "Featured",
@@ -10,7 +11,7 @@ const featuredPost = {
     "Most blockchain games promise rewards but never pay out. CJC Race is built differently — every race is decided by skill, not luck, and players earn real CJC coins that move on-chain. Here's how it actually works.",
   date: "April 25, 2026",
   readTime: "5 min read",
-  image: "/src/assets/gameplay-bg.jpg",
+  image: featuredImage,
 };
 
 const posts = [
@@ -127,6 +128,8 @@ const News = () => {
               src={featuredPost.image}
               alt={featuredPost.title}
               className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent lg:hidden" />
           </div>

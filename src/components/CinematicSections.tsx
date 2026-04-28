@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Crown, Star, Shield, Sparkles, ArrowRight, ChevronRight, Zap, Wind, Flame, Hourglass, Heart } from "lucide-react";
-import adventureBanner from "@/assets/gameplay-bg.jpg";
-import nftBanner from "@/assets/nft-banner.jpg";
-import leagueBanner from "@/assets/league-banner.jpg";
-import horse1 from "@/assets/horses/1.png";
-import horse2 from "@/assets/horses/2.png";
-import horse3 from "@/assets/horses/3.png";
-import horse4 from "@/assets/horses/4.png";
+import adventureBanner from "@/assets/gameplay-bg.webp";
+import nftBanner from "@/assets/nft-banner.webp";
+import leagueBanner from "@/assets/league-banner.webp";
+import horse1 from "@/assets/horses/1.webp";
+import horse2 from "@/assets/horses/2.webp";
+import horse3 from "@/assets/horses/3.webp";
+import horse4 from "@/assets/horses/4.webp";
 
 // Rarity tiers with colors
 const rarityTiers = [
@@ -119,7 +119,7 @@ const StableSection = () => (
     <div className="relative overflow-hidden">
       {/* Cinematic background */}
       <div className="absolute inset-0">
-        <img src={nftBanner} alt="Your Stable" className="w-full h-full object-cover" style={{ opacity: 0.6 }} />
+        <img src={nftBanner} alt="Your Stable" className="w-full h-full object-cover" style={{ opacity: 0.6 }} loading="lazy" decoding="async" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/50" />
         <div className="absolute inset-0" style={{
@@ -254,6 +254,10 @@ const StableSection = () => (
                       src={horse.img}
                       alt={horse.breed}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
+                      width={80}
+                      height={80}
                     />
                     <div
                       className="absolute top-1 left-1 px-1.5 py-0.5 rounded text-[10px] font-black font-display backdrop-blur-sm"
@@ -275,7 +279,7 @@ const StableSection = () => (
                       <span className="text-foreground/50">{horse.gender}</span>
                       <span className="text-foreground/40 truncate">{horse.breed}</span>
                     </div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex flex-wrap items-center gap-1.5">
                       <AttrCircle value={horse.energy} color="#F59E0B" icon={Zap} label="Energy" />
                       <AttrCircle value={horse.speed} color="#10B981" icon={Wind} label="Speed" />
                       <AttrCircle value={horse.burst} color="#10B981" icon={Flame} label="Burst" />
@@ -334,8 +338,8 @@ const CinematicSections = () => {
       {/* Section 1: Gameplay */}
       <div className="relative mb-2">
         <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
-          <img src={standardSections[0].img} alt={standardSections[0].title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+          <img src={standardSections[0].img} alt={standardSections[0].title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40 md:to-transparent md:via-background/70" />
         </div>
         <div className="absolute inset-0 flex items-center justify-start">
           <motion.div
@@ -343,13 +347,13 @@ const CinematicSections = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="container max-w-lg ml-8 md:ml-24 pointer-events-auto select-text"
+            className="max-w-lg px-4 sm:px-6 md:pl-24 md:pr-8 pointer-events-auto select-text"
           >
             <span className="font-display text-xs tracking-[0.3em] text-primary uppercase select-text">{standardSections[0].tag}</span>
             <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-4 tracking-wide select-text">
               {standardSections[0].title}
             </h2>
-            <p className="text-foreground/70 text-base md:text-lg mb-6 leading-relaxed select-text">{standardSections[0].desc}</p>
+            <p className="text-foreground/70 text-sm sm:text-base md:text-lg mb-6 leading-relaxed select-text">{standardSections[0].desc}</p>
             <Link
               to={standardSections[0].cta.href}
               className="inline-block gradient-gold px-6 py-3 font-display text-sm tracking-widest text-primary-foreground rounded-lg hover:opacity-90 transition-opacity uppercase select-none"
@@ -366,8 +370,8 @@ const CinematicSections = () => {
       {/* Section 3: League */}
       <div className="relative mb-2">
         <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
-          <img src={standardSections[1].img} alt={standardSections[1].title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+          <img src={standardSections[1].img} alt={standardSections[1].title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40 md:to-transparent md:via-background/70" />
         </div>
         <div className="absolute inset-0 flex items-center justify-start">
           <motion.div
@@ -375,13 +379,13 @@ const CinematicSections = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="container max-w-lg ml-8 md:ml-24"
+            className="max-w-lg px-4 sm:px-6 md:pl-24 md:pr-8"
           >
             <span className="font-display text-xs tracking-[0.3em] text-primary uppercase">{standardSections[1].tag}</span>
             <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-4 tracking-wide">
               {standardSections[1].title}
             </h2>
-            <p className="text-foreground/70 text-base md:text-lg mb-6 leading-relaxed">{standardSections[1].desc}</p>
+            <p className="text-foreground/70 text-sm sm:text-base md:text-lg mb-6 leading-relaxed">{standardSections[1].desc}</p>
             <Link
               to={standardSections[1].cta.href}
               className="inline-block gradient-gold px-6 py-3 font-display text-sm tracking-widest text-primary-foreground rounded-lg hover:opacity-90 transition-opacity uppercase"

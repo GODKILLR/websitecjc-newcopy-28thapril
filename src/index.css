@@ -58,8 +58,18 @@
     @apply border-border;
   }
 
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-background text-foreground font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Prevent oversized media from forcing horizontal scroll on mobile */
+  img, video, iframe {
+    max-width: 100%;
   }
 }
 

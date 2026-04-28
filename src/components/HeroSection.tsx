@@ -1,7 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ChevronDown } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { Link } from "react-router-dom";
+import heroBg from "@/assets/hero-bg.webp";
 
 const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -41,7 +42,7 @@ const HeroSection = () => {
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Parallax Background */}
       <motion.div className="absolute inset-0" style={{ y }}>
-        <img src={heroBg} alt="" className="w-full h-full object-cover" />
+        <img src={heroBg} alt="" className="w-full h-full object-cover" loading="eager" decoding="async" />
         <div className="absolute inset-0 bg-background/50" />
         <div className="absolute bottom-0 left-0 right-0 h-40 section-fade" />
       </motion.div>
@@ -71,7 +72,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider text-gradient-gold mb-4 sweep-flag"
+          className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-wider text-gradient-gold mb-4 sweep-flag"
         >
           CJC RACE
         </motion.h1>
@@ -80,7 +81,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35 }}
-          className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide text-foreground/90 mb-6"
+          className="font-display text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide text-foreground/90 mb-6"
         >
           RACE. WIN. GET PAID IN <span className="text-primary">REAL USDT</span>.
         </motion.h2>
@@ -89,7 +90,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-base sm:text-lg md:text-xl text-foreground/70 font-body max-w-2xl mx-auto mb-10 font-light tracking-wide"
+          className="text-sm sm:text-lg md:text-xl text-foreground/70 font-body max-w-2xl mx-auto mb-10 font-light tracking-wide"
         >
           Master gate timing, manage stamina, outrace real players, and win real USDT rewards.
         </motion.p>
@@ -98,13 +99,11 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto"
         >
-          <a
-            href="https://www.cjcrace.io/download"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-display text-sm tracking-widest px-10 py-4 rounded-lg hover:opacity-90 transition-all uppercase glow-gold group relative overflow-hidden"
+          <Link
+            to="/download"
+            className="text-center font-display text-sm tracking-widest px-8 sm:px-10 py-4 rounded-lg hover:opacity-90 transition-all uppercase glow-gold group relative overflow-hidden"
             style={{ background: 'linear-gradient(135deg, #059669, #10B981)', color: '#ffffff' }}
           >
             <span className="relative z-10">Start Racing Free</span>
@@ -116,23 +115,21 @@ const HeroSection = () => {
                 transition={{ duration: 0.3 }}
               />
             </span>
-          </a>
+          </Link>
           <a
             href="https://market.cjcrace.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-card text-foreground font-display text-sm tracking-widest px-8 py-3.5 rounded-lg hover:border-primary/50 transition-colors uppercase silk-underline"
+            className="text-center glass-card text-foreground font-display text-sm tracking-widest px-8 py-3.5 rounded-lg hover:border-primary/50 transition-colors uppercase silk-underline"
           >
             Marketplace
           </a>
-          <a
-            href="https://www.cjcrace.io/download"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="gradient-gold text-primary-foreground font-display text-sm tracking-widest px-8 py-3.5 rounded-lg hover:opacity-90 transition-opacity uppercase"
+          <Link
+            to="/download"
+            className="text-center gradient-gold text-primary-foreground font-display text-sm tracking-widest px-8 py-3.5 rounded-lg hover:opacity-90 transition-opacity uppercase"
           >
             Download Game
-          </a>
+          </Link>
         </motion.div>
       </div>
 

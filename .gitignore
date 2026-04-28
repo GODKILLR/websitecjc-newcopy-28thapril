@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# One-off Playwright audit output
+mobile-audit-screenshots/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
