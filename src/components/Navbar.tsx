@@ -1,39 +1,75 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download, Wallet } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/cjc-logo.png";
 
-const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Game Info", href: "#game-info" },
-  { label: "How to Play", href: "#how-to-play" },
-  { label: "Marketplace", href: "https://market.cjcrace.io", external: true },
-  { label: "WhitePaper", href: "https://docs.cjcrace.io/cjc-race-white-paper", external: true },
+type NavLink = {
+  label: string;
+  to?: string;
+  hash?: string;
+  external?: string;
+};
+
+const navLinks: NavLink[] = [
+  { label: "Home", to: "/" },
+  { label: "Game Info", to: "/", hash: "#game-info" },
+  { label: "How to Play", to: "/", hash: "#how-to-play" },
+  { label: "Marketplace", external: "https://market.cjcrace.io" },
+  { label: "WhitePaper", external: "https://docs.cjcrace.io/cjc-race-white-paper" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNav = (link: NavLink) => {
+    setOpen(false);
+    if (link.external) {
+      window.open(link.external, "_blank", "noopener,noreferrer");
+      return;
+    }
+    if (link.to) {
+      if (location.pathname !== link.to) {
+        navigate(link.to);
+        if (link.hash) {
+          // Wait for navigation, then scroll
+          setTimeout(() => {
+            const el = document.querySelector(link.hash!);
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      } else {
+        if (link.hash) {
+          const el = document.querySelector(link.hash);
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-0 border-b border-border/30">
       <div className="container flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0 })}>
           <img src={logo} alt="CJC Race" className="h-10 md:h-12 w-auto" />
-        </a>
+        </Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.label}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noopener noreferrer" : undefined}
+              onClick={() => handleNav(link)}
               className="font-display text-sm tracking-wider text-foreground/70 hover:text-primary transition-colors uppercase"
             >
               {link.label}
-            </a>
+            </button>
           ))}
         </div>
 
@@ -73,15 +109,13 @@ const Navbar = () => {
           >
             <div className="container py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.label}
-                  href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  onClick={() => setOpen(false)}
-                  className="font-display text-sm tracking-wider text-foreground/70 hover:text-primary transition-colors uppercase"
+                  onClick={() => handleNav(link)}
+                  className="text-left font-display text-sm tracking-wider text-foreground/70 hover:text-primary transition-colors uppercase"
                 >
                   {link.label}
-                </a>
+                </button>
               ))}
               <a
                 href="https://market.cjcrace.io"

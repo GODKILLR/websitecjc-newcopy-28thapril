@@ -69,7 +69,7 @@ const FooterSection = () => {
           <div>
             <h4 className="font-display text-xs tracking-[0.2em] text-primary uppercase mb-4">Game</h4>
             <div className="flex flex-col gap-2">
-              <a href="https://www.cjcrace.io/gameinfo" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors text-sm">Game Info</a>
+              <Link to="/game-modes" className="text-foreground/60 hover:text-primary transition-colors text-sm">Game Info</Link>
               <a href="https://www.cjcrace.io/download" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors text-sm">Download</a>
               <a href="https://market.cjcrace.io" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors text-sm">Marketplace</a>
             </div>
@@ -80,7 +80,7 @@ const FooterSection = () => {
             <h4 className="font-display text-xs tracking-[0.2em] text-primary uppercase mb-4">Resources</h4>
             <div className="flex flex-col gap-2">
               <a href="https://docs.cjcrace.io/cjc-race-white-paper" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors text-sm">WhitePaper</a>
-              <a href="https://www.cjcrace.io/news" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors text-sm">News & Updates</a>
+              <Link to="/news" className="text-foreground/60 hover:text-primary transition-colors text-sm">News & Updates</Link>
               <a href="https://www.cjcrace.io/document/Beginners_Guide_EN" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors text-sm">Beginner's Guide</a>
             </div>
           </div>

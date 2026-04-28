@@ -4,9 +4,9 @@ import { BookOpen, ChevronRight, Calculator, ChevronLeft, Sparkles, Target, Wind
 
 const steps = [
   {
-    title: "Get Your NFTs",
-    icon: "🐎",
-    content: "Start your racing journey by acquiring Racehorse and Jockey NFTs. Purchase Welcome Packs or browse the Marketplace for rare finds.",
+    title: "Download Free",
+    icon: "📲",
+    content: "Sign up with your email. Race in free mode using assigned horses. No wallet needed to get started.",
     details: [
       { label: "Racehorse NFT", value: "Required for racing", icon: "🐎" },
       { label: "Jockey NFT", value: "Required for racing", icon: "🏇" },
@@ -14,9 +14,9 @@ const steps = [
     ],
   },
   {
-    title: "Set Up Your Team",
-    icon: "⚙️",
-    content: "Configure your racing set by matching horse attributes to race conditions. Consider distance, direction, weather, and track type.",
+    title: "Get Your NFTs",
+    icon: "🐎",
+    content: "Buy a Mystery Box from the marketplace. Build your racing set with Racehorse Jockey and Item NFTs. Become a Tycoon Club member.",
     details: [
       { label: "Speed", value: "Determines min/max speeds", icon: "🚀" },
       { label: "Burst", value: "Acceleration when whipped", icon: "⚡" },
@@ -24,9 +24,9 @@ const steps = [
     ],
   },
   {
-    title: "Master the Race",
+    title: "Race & Earn",
     icon: "🏆",
-    content: "Perfect your exit timing, manage stamina strategically, and use items wisely. Control your jockey in real-time for victory!",
+    content: "Compete in member modes. Win CJC Coins. Convert to USDT at a fixed 100 to 1 rate when you cash out.",
     details: [
       { label: "Exit Timing", value: "Tap when pointers overlap", icon: "🎯" },
       { label: "Stamina", value: "Higher speed = faster drain", icon: "🔋" },
@@ -71,10 +71,10 @@ const HowToPlay = () => {
             Beginner's Guide
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-gradient-gold mb-4">
-            How to Play
+            From Download to First Win in 10 Minutes
           </h2>
           <p className="text-foreground/60 max-w-2xl mx-auto">
-            Master the art of blockchain horse racing with our step-by-step guide. From acquiring NFTs to winning races.
+            Sign up free. Buy your first NFT pack. Race against real players and earn USDT.
           </p>
         </motion.div>
 

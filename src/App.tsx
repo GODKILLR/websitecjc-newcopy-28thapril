@@ -16,6 +16,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import GameModes from "./pages/GameModes.tsx";
 import Ambassador from "./pages/Ambassador.tsx";
 import DownloadPage from "./pages/Download.tsx";
+import News from "./pages/News.tsx";
+import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/team" element={<Team />} />
@@ -38,6 +41,7 @@ const App = () => (
           <Route path="/game-modes" element={<GameModes />} />
           <Route path="/ambassador" element={<Ambassador />} />
           <Route path="/download" element={<DownloadPage />} />
+          <Route path="/news" element={<News />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

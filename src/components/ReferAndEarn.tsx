@@ -49,8 +49,7 @@ const ReferAndEarn = () => (
               Invite Friends, Earn Rewards
             </h2>
             <p className="text-foreground/70 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              Share your referral link with friends. When they sign up and race, you both earn CJC
-              coins. Top referrers earn up to $500 in rewards monthly.
+              Share your link. When friends sign up and race you both earn CJC Coins. Top referrers earn up to $500 monthly.
             </p>
           </div>
 

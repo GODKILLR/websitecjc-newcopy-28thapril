@@ -1,78 +1,93 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { motion } from "framer-motion";
-import { Trophy, Swords, Crown, Users, Target, Clock, Zap, Star } from "lucide-react";
+import { Trophy, Swords, Crown, Users, Target, Clock, Zap, Star, Sparkles, Gift } from "lucide-react";
 
 const gameModes = [
   {
     icon: Trophy,
     name: "Champion Stakes",
-    tagline: "The ultimate test of skill",
+    tagline: "Primary earning mode",
     description:
-      "Champion Stakes is the flagship competitive mode in CJC Race. Distance-specific races where the best horses and jockeys go head-to-head for high-value CJC prizes. Master exit timing, stamina management, and race strategy to claim victory.",
+      "The flagship competitive mode for Tycoon Club members. New races every 30 minutes throughout the day. Players register for one race at a time, matching their horse's distance and rarity to the upcoming event. Before registering check the race direction, weather, and track type to align your horse preferences. Top 5 finishers earn CJC Coins, Climax Tokens and props (up to 20 USDT per race). Positions 6 to 18 earn Climax Tokens only. Total prize pool exceeds 30K USDT every month and scales as the membership base grows.",
     details: [
-      { label: "Distance", value: "1800m" },
-      { label: "Entry", value: "Stake-based" },
-      { label: "Rewards", value: "Up to 12,500 CJC" },
-      { label: "Skill Level", value: "Advanced" },
+      { label: "Access", value: "Members Only" },
+      { label: "Availability", value: "New race every 30 minutes" },
+      { label: "HP Cost", value: "1 HP (horse and jockey)" },
+      { label: "Top 5", value: "CJC + Climax + Props (up to 20 USDT)" },
+      { label: "6th to 18th", value: "Climax Tokens only" },
+      { label: "Monthly Pool", value: "30K+ USDT" },
     ],
     color: "#F59E0B",
   },
   {
     icon: Star,
     name: "League Challenges",
-    tagline: "Climb the ranks, earn daily rewards",
+    tagline: "Consistent grind mode",
     description:
-      "Exclusive to members, League Challenges offer competitive races across short, medium, and long distances. Compete in seasonal leagues, rise through the rankings, and reach the top tiers to enter Championship Stakes. Top performers share a daily prize pool of $1,000.",
+      "24/7 continuous racing for Tycoon Club members. Pick your preferred distance (short, medium or long) and get matched instantly with other players. Every participant earns season points after each race regardless of placement. Finishing first earns more, but even last place earns something. Strategy: consistency beats occasional big wins. Racing frequently and regularly compounds points faster than sporadic high-placement races.",
     details: [
-      { label: "Distances", value: "Short / Medium / Long" },
-      { label: "Entry", value: "Members only" },
-      { label: "Rewards", value: "$1,000 daily pool" },
-      { label: "Skill Level", value: "Intermediate" },
+      { label: "Access", value: "Members Only" },
+      { label: "Availability", value: "24/7 continuous" },
+      { label: "HP Cost", value: "1 HP (horse and jockey)" },
+      { label: "Distances", value: "Short, Medium, Long" },
+      { label: "Scoring", value: "Season points every race" },
     ],
     color: "#60A5FA",
   },
   {
     icon: Crown,
     name: "Grand Master Cup",
-    tagline: "Tournament-style glory",
+    tagline: "High-stakes tournament",
     description:
-      "The Grand Master Cup is a high-stakes tournament where top-ranked players compete in elimination-style brackets. Each round narrows the field until only the best remain. Grand Master Cup events feature some of the largest prize pools in CJC Race.",
+      "Periodic high-stakes tournaments open to all players. Categorised by short, medium, and long distances. Each round, the top 6 players advance to the next, with 2 to 8 rounds depending on participant count. Top 3 in each round earn CJC Coins. The champion can win up to 150x their entry fee.",
     details: [
-      { label: "Format", value: "Elimination bracket" },
-      { label: "Entry", value: "Qualification required" },
-      { label: "Rewards", value: "Up to 25,000 CJC" },
-      { label: "Skill Level", value: "Expert" },
+      { label: "Access", value: "All Players" },
+      { label: "Availability", value: "Periodic events" },
+      { label: "HP Cost", value: "None" },
+      { label: "Rewards", value: "Up to 150x entry fee" },
     ],
     color: "#A78BFA",
   },
   {
     icon: Swords,
-    name: "PVP Match",
-    tagline: "Player vs Player, head-to-head",
+    name: "PVP Races",
+    tagline: "Player vs Player, on demand",
     description:
-      "Challenge other players directly in PVP matches. Pick your best horse, set your strategy, and race one-on-one or in small groups. PVP matches are fast-paced, skill-driven, and available on demand. Perfect for testing your build against real opponents.",
+      "Available 24/7. Any player can host a PVP race. The host sets all parameters: required NFT rarities, race distance, track conditions, and whether betting is enabled. If betting is enabled, all participants wager the same amount. Winner takes the pool, or it splits 5-3-2 among top 3 based on host settings.",
     details: [
-      { label: "Format", value: "1v1 or small group" },
-      { label: "Entry", value: "CJC coin wager" },
-      { label: "Rewards", value: "Winner takes pool" },
-      { label: "Skill Level", value: "All levels" },
+      { label: "Access", value: "All Players" },
+      { label: "Availability", value: "24/7" },
+      { label: "HP Cost", value: "None" },
+      { label: "Rewards", value: "Winner takes pool (or 5-3-2 split)" },
     ],
     color: "#EF4444",
   },
   {
     icon: Target,
-    name: "Practice Mode",
-    tagline: "Train without risk",
+    name: "Practice Match",
+    tagline: "Sandbox training mode",
     description:
-      "New to CJC Race or testing a new horse build? Practice Mode lets you race without wagering CJC coins. Learn exit timing, test different race conditions, experiment with horse attributes, and build your skills before entering competitive modes.",
+      "A pure training ground available to all players. Customise teams, course conditions, and the number of AI opponents. A default SR-rarity Level 30 horse and jockey are provided. No HP deduction, no EXP gains, no proficiency progress. Perfect for testing exit timing and horse builds.",
     details: [
-      { label: "Format", value: "Solo or AI opponents" },
-      { label: "Entry", value: "Free" },
+      { label: "Access", value: "All Players" },
+      { label: "Availability", value: "Anytime" },
+      { label: "HP Cost", value: "None" },
       { label: "Rewards", value: "Experience only" },
-      { label: "Skill Level", value: "Beginner" },
     ],
     color: "#10B981",
+  },
+];
+
+// Non-member access modes
+const nonMemberModes = [
+  {
+    name: "Champion Stakes — Free Mode",
+    desc: "The system randomly assigns one horse per race. All players earn Climax Tokens based on finishing position. Daily cap: 600 Climax Tokens per player.",
+  },
+  {
+    name: "League Challenges — Free Mode",
+    desc: "Random horse, random racecourse and conditions. Matched 24/7. 8,000 Climax Token hourly prize pool shared among participants. Daily cap: 300 tokens per player.",
   },
 ];
 
@@ -80,25 +95,32 @@ const raceConditions = [
   {
     category: "Distance",
     options: [
-      { name: "Short", range: "800 – 1,200m", note: "Favours speed and burst" },
-      { name: "Medium", range: "1,400 – 1,800m", note: "Balanced attributes needed" },
-      { name: "Long", range: "2,000 – 3,200m", note: "Stamina is critical" },
+      { name: "Short", range: "800 to 1,200m", note: "Match horses with short distance preference" },
+      { name: "Medium", range: "1,400 to 1,800m", note: "Match horses with medium distance preference" },
+      { name: "Long", range: "2,000 to 3,200m", note: "Match horses with long distance preference" },
     ],
   },
   {
-    category: "Track Type",
+    category: "Direction",
     options: [
-      { name: "Turf", range: "", note: "Standard surface, balanced performance" },
-      { name: "Dirt", range: "", note: "Favours power and gate speed" },
-      { name: "Synthetic", range: "", note: "Consistent conditions, all-round stats" },
+      { name: "Left", range: "", note: "Anti-clockwise track. Match horse direction preference." },
+      { name: "Right", range: "", note: "Clockwise track. Match horse direction preference." },
+      { name: "Straight", range: "", note: "Straight track. Match horse direction preference." },
     ],
   },
   {
     category: "Weather",
     options: [
-      { name: "Sunny", range: "", note: "No stamina penalty" },
-      { name: "Cloudy", range: "", note: "Mild stamina reduction" },
-      { name: "Rainy", range: "", note: "Heavy stamina drain, strategy shifts" },
+      { name: "Sunny", range: "", note: "Match horse weather preference for max performance" },
+      { name: "Cloudy", range: "", note: "Match horse weather preference for max performance" },
+      { name: "Rainy", range: "", note: "Match horse weather preference for max performance" },
+    ],
+  },
+  {
+    category: "Track Type",
+    options: [
+      { name: "Turf", range: "", note: "Match horse track preference" },
+      { name: "Dirt", range: "", note: "Match horse track preference" },
     ],
   },
 ];
@@ -118,8 +140,7 @@ const GameModes = () => {
             Game Modes
           </h1>
           <p className="text-foreground/60 max-w-2xl mx-auto text-lg">
-            From casual practice runs to high-stakes championship tournaments,
-            CJC Race offers competitive modes for every skill level.
+            Six game modes for every skill level. Tycoon Club members compete in CJC Coin earning modes. Free players race for Climax Tokens and qualify for Lucky Wins draws.
           </p>
         </div>
 
@@ -132,55 +153,73 @@ const GameModes = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="glass-card p-6 md:p-8 border-border/30 hover:border-primary/20 transition-colors"
+              className="relative rounded-2xl border border-border/30 hover:border-primary/30 transition-all duration-300 overflow-hidden group"
+              style={{
+                background: `linear-gradient(135deg, ${mode.color}08 0%, rgba(15,23,42,0.6) 50%, ${mode.color}04 100%)`,
+              }}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6">
+              {/* Accent stripe */}
+              <div
+                className="absolute top-0 left-0 right-0 h-1"
+                style={{ background: `linear-gradient(90deg, transparent, ${mode.color}, transparent)` }}
+              />
+
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px]">
                 {/* Left: Content */}
-                <div>
-                  <div className="flex items-center gap-3 mb-3">
+                <div className="p-8 md:p-10">
+                  {/* Header */}
+                  <div className="flex items-start gap-4 mb-6">
                     <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center"
+                      className="w-14 h-14 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform"
                       style={{
-                        background: `${mode.color}15`,
-                        border: `1px solid ${mode.color}30`,
+                        background: `${mode.color}20`,
+                        border: `1px solid ${mode.color}40`,
                       }}
                     >
                       <mode.icon
-                        className="w-5 h-5"
+                        className="w-7 h-7"
                         style={{ color: mode.color }}
                       />
                     </div>
-                    <div>
-                      <h2 className="font-display text-xl font-bold text-foreground">
-                        {mode.name}
-                      </h2>
-                      <p
-                        className="text-xs font-display tracking-wider"
+                    <div className="flex-1 pt-1">
+                      <span
+                        className="text-[10px] font-display tracking-[0.25em] uppercase"
                         style={{ color: mode.color }}
                       >
                         {mode.tagline}
-                      </p>
+                      </span>
+                      <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mt-1">
+                        {mode.name}
+                      </h2>
                     </div>
                   </div>
-                  <p className="text-foreground/70 text-sm leading-relaxed">
+
+                  {/* Description */}
+                  <p className="text-foreground/75 text-base leading-relaxed">
                     {mode.description}
                   </p>
                 </div>
 
-                {/* Right: Details card */}
-                <div className="rounded-xl border border-border/30 bg-background/50 p-4">
-                  <div className="space-y-3">
+                {/* Right: Details panel */}
+                <div
+                  className="p-8 md:p-10 lg:border-l border-t lg:border-t-0 border-border/20"
+                  style={{ background: 'rgba(8,10,15,0.5)' }}
+                >
+                  <p className="text-[10px] font-display tracking-[0.25em] uppercase text-foreground/40 mb-5">
+                    At a Glance
+                  </p>
+                  <div className="space-y-4">
                     {mode.details.map((d) => (
-                      <div
-                        key={d.label}
-                        className="flex items-center justify-between"
-                      >
-                        <span className="text-foreground/50 text-xs">
+                      <div key={d.label} className="grid grid-cols-[100px_1fr] gap-3 items-start">
+                        <p className="text-foreground/50 text-xs uppercase tracking-wider font-display pt-0.5">
                           {d.label}
-                        </span>
-                        <span className="font-display text-xs font-bold text-foreground">
+                        </p>
+                        <p
+                          className="text-sm font-display font-bold leading-snug"
+                          style={{ color: '#fff' }}
+                        >
                           {d.value}
-                        </span>
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -188,6 +227,54 @@ const GameModes = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Free Mode Access */}
+        <div className="mb-24">
+          <div className="text-center mb-10">
+            <span className="font-display text-xs tracking-[0.3em] text-primary uppercase mb-4 block">
+              Free to Play
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Race Without Buying In
+            </h2>
+            <p className="text-foreground/60 max-w-xl mx-auto text-sm">
+              Sign up with email and race for free. Earn Climax Tokens to enter monthly Lucky Wins draws with $250,000 minimum prize fund.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+            {nonMemberModes.map((m, i) => (
+              <motion.div
+                key={m.name}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="glass-card p-6 border-border/30"
+              >
+                <div className="flex items-start gap-4">
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                    style={{
+                      background: "rgba(16,185,129,0.12)",
+                      border: "1px solid rgba(16,185,129,0.3)",
+                    }}
+                  >
+                    <Gift className="w-5 h-5" style={{ color: "#10B981" }} />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-base font-bold text-foreground mb-2">
+                      {m.name}
+                    </h3>
+                    <p className="text-foreground/60 text-sm leading-relaxed">
+                      {m.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Race Conditions */}
@@ -200,12 +287,11 @@ const GameModes = () => {
               Race Conditions
             </h2>
             <p className="text-foreground/60 max-w-xl mx-auto text-sm">
-              Every race is shaped by distance, track type, and weather. The
-              right horse build depends on the conditions you're racing in.
+              Every race is shaped by distance, direction, weather, and track type. The right horse build depends on the conditions you are racing in.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {raceConditions.map((group) => (
               <div key={group.category} className="glass-card p-6 border-border/30">
                 <h3 className="font-display text-sm font-bold text-primary mb-4 tracking-wider uppercase">
@@ -252,23 +338,23 @@ const GameModes = () => {
             {[
               {
                 icon: Zap,
-                title: "Exit Timing",
-                desc: "Tap when pointers overlap for a clean start. Mistiming costs precious seconds.",
+                title: "Gate Exit",
+                desc: "3 seconds before gates open, an Exit Indicator appears. Tap when two pointers overlap for the optimal start.",
               },
               {
                 icon: Clock,
                 title: "Stamina Management",
-                desc: "Higher speed drains stamina faster. Pace your horse or risk running out before the finish.",
+                desc: "Stamina depletes from race start. Higher speed drains it faster. Each whip costs extra. Run out and your horse drops to base speed.",
               },
               {
                 icon: Users,
-                title: "Collision Avoidance",
-                desc: "Maintain balance and avoid other horses. Collisions slow you down and drain stamina.",
+                title: "Balance & Collisions",
+                desc: "Active collisions cost balance. If your jockey loses all balance you are immediately disqualified.",
               },
               {
                 icon: Star,
-                title: "Whip Strategy",
-                desc: "Use your jockey items at the right moment for a burst of speed when it matters most.",
+                title: "Whip & Direction",
+                desc: "Adjust whip pressure with up and down buttons. Steer left and right to position. Tap whip for a manual speed burst.",
               },
             ].map((skill, i) => (
               <motion.div

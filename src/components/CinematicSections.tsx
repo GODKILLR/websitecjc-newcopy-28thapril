@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Crown, Zap, Star, Shield, Sparkles, ArrowRight, ChevronRight } from "lucide-react";
+import { Crown, Star, Shield, Sparkles, ArrowRight, ChevronRight, Zap, Wind, Flame, Hourglass, Heart } from "lucide-react";
 import adventureBanner from "@/assets/gameplay-bg.jpg";
 import nftBanner from "@/assets/nft-banner.jpg";
 import leagueBanner from "@/assets/league-banner.jpg";
+import horse1 from "@/assets/horses/1.png";
+import horse2 from "@/assets/horses/2.png";
+import horse3 from "@/assets/horses/3.png";
+import horse4 from "@/assets/horses/4.png";
 
 // Rarity tiers with colors
 const rarityTiers = [
@@ -15,118 +19,99 @@ const rarityTiers = [
   { label: "LR", name: "Legendary", color: "#C9A84C", bg: "rgba(201,168,76,0.2)" },
 ];
 
-// Preview horse cards
+// Preview horse cards — marketplace style
 const horseCards = [
   {
-    name: "Thunderstrike",
-    rarity: "SSR",
-    rarityColor: "#F59E0B",
-    style: "Front Runner",
-    speed: 92,
-    stamina: 78,
-    gate: 88,
-    spirit: 85,
-    emoji: "⚡",
-  },
-  {
-    name: "Shadow Dancer",
+    id: "1490",
+    breed: "Akhal-Teke",
+    gender: "Male",
+    level: 52,
     rarity: "UR",
     rarityColor: "#EF4444",
-    style: "Stalker",
-    speed: 85,
-    stamina: 94,
-    gate: 76,
-    spirit: 91,
-    emoji: "🌑",
+    img: horse1,
+    energy: 10,
+    speed: 1209,
+    burst: 1250,
+    stamina: 1254,
+    spirit: 1254,
+    listing: "in 2 months",
+    price: "2,288.00",
   },
   {
-    name: "Golden Crown",
-    rarity: "LR",
-    rarityColor: "#C9A84C",
-    style: "Stretch Runner",
-    speed: 96,
-    stamina: 88,
-    gate: 82,
-    spirit: 97,
-    emoji: "👑",
+    id: "1484",
+    breed: "Friesian",
+    gender: "Male",
+    level: 60,
+    rarity: "UR",
+    rarityColor: "#EF4444",
+    img: horse2,
+    energy: 10,
+    speed: 1301,
+    burst: 1281,
+    stamina: 1295,
+    spirit: 1284,
+    listing: "in 2 months",
+    price: "2,388.00",
+  },
+  {
+    id: "781",
+    breed: "Black Forest Cold Blood",
+    gender: "Female",
+    level: 60,
+    rarity: "UR",
+    rarityColor: "#EF4444",
+    img: horse3,
+    energy: 10,
+    speed: 1322,
+    burst: 1276,
+    stamina: 1296,
+    spirit: 1343,
+    listing: "in 2 months",
+    price: "1,280.00",
+  },
+  {
+    id: "220",
+    breed: "Morgan",
+    gender: "Male",
+    level: 60,
+    rarity: "UR",
+    rarityColor: "#EF4444",
+    img: horse4,
+    energy: 10,
+    speed: 1296,
+    burst: 1291,
+    stamina: 1330,
+    spirit: 1306,
+    listing: "in 2 months",
+    price: "1,388.00",
   },
 ];
 
-// Attribute bar component
-const AttributeBar = ({ label, value, color }: { label: string; value: number; color: string }) => (
-  <div className="flex items-center gap-2 text-xs">
-    <span className="w-14 text-foreground/50 uppercase tracking-wider">{label}</span>
-    <div className="flex-1 h-1.5 rounded-full bg-white/5 overflow-hidden">
-      <motion.div
-        className="h-full rounded-full"
-        style={{ background: color }}
-        initial={{ width: 0 }}
-        whileInView={{ width: `${value}%` }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-      />
+// Marketplace-style attribute circle with icon
+const AttrCircle = ({
+  value,
+  color,
+  icon: Icon,
+  label,
+}: {
+  value: number;
+  color: string;
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+}) => (
+  <div className="flex flex-col items-center gap-0.5" title={label}>
+    <span className="text-[10px] font-bold text-foreground/80 font-display">
+      {value.toLocaleString()}
+    </span>
+    <div
+      className="w-6 h-6 rounded-full flex items-center justify-center"
+      style={{ background: color, opacity: 0.9 }}
+    >
+      <Icon className="w-3 h-3 text-white" />
     </div>
-    <span className="w-6 text-right text-foreground/60 font-mono">{value}</span>
   </div>
 );
 
-// Horse card component
-const HorseCard = ({ horse, index }: { horse: typeof horseCards[0]; index: number }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay: index * 0.15 }}
-    whileHover={{ y: -8, scale: 1.02 }}
-    className="relative group"
-  >
-    <div className="glass-card border border-white/10 rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300">
-      {/* Card header with rarity */}
-      <div
-        className="relative h-36 flex items-center justify-center overflow-hidden"
-        style={{
-          background: `linear-gradient(135deg, ${horse.rarityColor}15, ${horse.rarityColor}05)`,
-        }}
-      >
-        <span className="text-6xl opacity-60 group-hover:scale-110 transition-transform duration-500">
-          {horse.emoji}
-        </span>
-        {/* Rarity badge */}
-        <div
-          className="absolute top-3 right-3 px-2.5 py-1 rounded-md text-xs font-bold tracking-wider font-display"
-          style={{
-            background: `${horse.rarityColor}20`,
-            color: horse.rarityColor,
-            border: `1px solid ${horse.rarityColor}40`,
-          }}
-        >
-          {horse.rarity}
-        </div>
-        {/* Shimmer effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-      </div>
-
-      {/* Card body */}
-      <div className="p-4">
-        <div className="flex items-center justify-between mb-1">
-          <h4 className="font-display text-sm font-bold text-foreground tracking-wide">{horse.name}</h4>
-        </div>
-        <div className="flex items-center gap-1.5 mb-4">
-          <Zap className="w-3 h-3 text-primary" />
-          <span className="text-xs text-primary/80 font-display tracking-wider">{horse.style}</span>
-        </div>
-
-        {/* Attributes */}
-        <div className="space-y-2">
-          <AttributeBar label="SPD" value={horse.speed} color="#F59E0B" />
-          <AttributeBar label="STA" value={horse.stamina} color="#10B981" />
-          <AttributeBar label="GATE" value={horse.gate} color="#60A5FA" />
-          <AttributeBar label="SPR" value={horse.spirit} color="#A78BFA" />
-        </div>
-      </div>
-    </div>
-  </motion.div>
-);
 
 // Stable Section — Two-column cinematic layout
 const StableSection = () => (
@@ -157,10 +142,10 @@ const StableSection = () => (
               Build Your Team
             </h2>
             <p className="text-foreground/70 text-sm md:text-base max-w-md leading-relaxed mb-6">
-              Every horse tells a story, every upgrade changes the race.
-              Collect, customize and compete across{' '}
-              <span className="text-primary font-semibold">6 rarity tiers</span> with
-              unique attributes that shape your strategy.
+              Every horse tells a story. Every upgrade changes the race.
+              Collect across{' '}
+              <span className="text-primary font-semibold">6 rarity tiers</span>.
+              Train your jockey. Stack items that match your build. Your team. Your strategy.
             </p>
 
             {/* Compact stats — 2x2 grid */}
@@ -243,61 +228,76 @@ const StableSection = () => (
             </motion.div>
           </motion.div>
 
-          {/* RIGHT COLUMN: Horse cards — compact vertical stack */}
+          {/* RIGHT COLUMN: Marketplace-style horse cards */}
           <div className="flex flex-col gap-3">
             {horseCards.map((horse, i) => (
               <motion.div
-                key={horse.name}
+                key={horse.id}
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.12 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ x: -4, scale: 1.01 }}
                 className="group"
               >
                 <div
-                  className="flex items-center gap-4 rounded-xl overflow-hidden border border-white/10 hover:border-primary/30 transition-all duration-300 p-3"
+                  className="flex items-center gap-3 rounded-xl border border-white/10 hover:border-primary/30 transition-all duration-300 p-3"
                   style={{
                     background: 'rgba(15,23,42,0.7)',
                     backdropFilter: 'blur(16px)',
                     WebkitBackdropFilter: 'blur(16px)',
                   }}
                 >
-                  {/* Horse icon + rarity */}
-                  <div
-                    className="relative w-20 h-20 flex-shrink-0 rounded-lg flex items-center justify-center overflow-hidden"
-                    style={{
-                      background: `linear-gradient(135deg, ${horse.rarityColor}18, ${horse.rarityColor}08)`,
-                    }}
-                  >
-                    <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{horse.emoji}</span>
+                  {/* Horse thumbnail with rarity badge */}
+                  <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+                    <img
+                      src={horse.img}
+                      alt={horse.breed}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                     <div
-                      className="absolute top-1 right-1 px-1.5 py-0.5 rounded text-[9px] font-bold font-display"
+                      className="absolute top-1 left-1 px-1.5 py-0.5 rounded text-[10px] font-black font-display backdrop-blur-sm"
                       style={{
-                        background: `${horse.rarityColor}25`,
-                        color: horse.rarityColor,
-                        border: `1px solid ${horse.rarityColor}40`,
+                        background: `${horse.rarityColor}40`,
+                        color: '#fff',
+                        textShadow: '0 1px 2px rgba(0,0,0,0.8)',
                       }}
                     >
                       {horse.rarity}
                     </div>
                   </div>
 
-                  {/* Horse info + attributes */}
+                  {/* Center: Level + breed + attribute circles */}
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h4 className="font-display text-sm font-bold text-foreground tracking-wide">{horse.name}</h4>
-                      <div className="flex items-center gap-1">
-                        <Zap className="w-2.5 h-2.5 text-primary" />
-                        <span className="text-[10px] text-primary/70 font-display tracking-wider">{horse.style}</span>
-                      </div>
+                    <div className="flex items-center gap-2 mb-2 text-xs flex-wrap">
+                      <span className="text-foreground/50">Level</span>
+                      <span className="font-display font-bold" style={{ color: horse.rarityColor }}>{horse.level}</span>
+                      <span className="text-foreground/50">{horse.gender}</span>
+                      <span className="text-foreground/40 truncate">{horse.breed}</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-x-4 gap-y-1">
-                      <AttributeBar label="SPD" value={horse.speed} color="#F59E0B" />
-                      <AttributeBar label="STA" value={horse.stamina} color="#10B981" />
-                      <AttributeBar label="GATE" value={horse.gate} color="#60A5FA" />
-                      <AttributeBar label="SPR" value={horse.spirit} color="#A78BFA" />
+                    <div className="flex items-center gap-1.5">
+                      <AttrCircle value={horse.energy} color="#F59E0B" icon={Zap} label="Energy" />
+                      <AttrCircle value={horse.speed} color="#10B981" icon={Wind} label="Speed" />
+                      <AttrCircle value={horse.burst} color="#10B981" icon={Flame} label="Burst" />
+                      <AttrCircle value={horse.stamina} color="#60A5FA" icon={Hourglass} label="Stamina" />
+                      <AttrCircle value={horse.spirit} color="#EC4899" icon={Heart} label="Spirit" />
                     </div>
+                  </div>
+
+                  {/* Right: Listing info */}
+                  <div className="flex flex-col items-end gap-1 flex-shrink-0">
+                    <div
+                      className="px-2 py-1 rounded text-[10px] font-display font-bold"
+                      style={{
+                        background: 'rgba(201,168,76,0.15)',
+                        color: '#C9A84C',
+                        border: '1px solid rgba(201,168,76,0.3)',
+                      }}
+                    >
+                      # {horse.id}
+                    </div>
+                    <span className="text-[10px] text-foreground/40">{horse.listing}</span>
+                    <span className="font-display text-sm font-bold text-foreground">{horse.price}</span>
                   </div>
                 </div>
               </motion.div>
@@ -315,16 +315,16 @@ const standardSections = [
   {
     tag: "GAMEPLAY",
     title: "The Thrill of the Track",
-    desc: "Race against real players to earn CJC coins, badges and other rewards. Control your Jockey in-game, match attributes, and use in-game props to secure victory.",
+    desc: "Take control of your jockey in real time. Time the gate exit. Manage stamina. Whip at the right second. Champion Stakes runs a new race every 30 minutes throughout the day with reward pools that scale up as the membership base grows.",
     img: adventureBanner,
     cta: { label: "Learn More", href: "/game-modes", internal: true },
   },
   {
     tag: "LEAGUE",
     title: "Compete in League Challenges",
-    desc: "League Challenges offer competitive races across short, medium, and long distances, exclusive to members. Reach the top tiers to enter Championship Stakes, with $1,000 distributed daily to the highest-ranked players.",
+    desc: "Pick your distance. Get matched instantly. Race 24/7. Every race earns season points whether you finish first or last. Consistency beats occasional big wins. Race frequently and your points compound faster.",
     img: leagueBanner,
-    cta: { label: "Play Now", href: "https://www.cjcrace.io/gameinfo" },
+    cta: { label: "Play Now", href: "/game-modes", internal: true },
   },
 ];
 
@@ -382,14 +382,12 @@ const CinematicSections = () => {
               {standardSections[1].title}
             </h2>
             <p className="text-foreground/70 text-base md:text-lg mb-6 leading-relaxed">{standardSections[1].desc}</p>
-            <a
-              href={standardSections[1].cta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block glass-card px-6 py-3 font-display text-sm tracking-widest text-primary border-primary/40 hover:bg-primary/10 transition-colors uppercase"
+            <Link
+              to={standardSections[1].cta.href}
+              className="inline-block gradient-gold px-6 py-3 font-display text-sm tracking-widest text-primary-foreground rounded-lg hover:opacity-90 transition-opacity uppercase"
             >
               {standardSections[1].cta.label}
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

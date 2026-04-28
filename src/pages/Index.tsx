@@ -7,7 +7,6 @@ import HowToPlay from "@/components/HowToPlay";
 import WalletPreview from "@/components/WalletPreview";
 import DaySpa from "@/components/DaySpa";
 import FarmPreview from "@/components/FarmPreview";
-import ReferAndEarn from "@/components/ReferAndEarn";
 import AmbassadorPreview from "@/components/AmbassadorPreview";
 import RoadmapSection from "@/components/RoadmapSection";
 import CommunitySection from "@/components/CommunitySection";
@@ -32,7 +31,6 @@ const Index = () => {
         <WalletPreview />
         <DaySpa />
         <FarmPreview />
-        <ReferAndEarn />
         <AmbassadorPreview />
         <RoadmapSection />
         <CommunitySection />

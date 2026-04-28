@@ -224,54 +224,26 @@ const LeaderboardSection = () => {
           </motion.div>
         )}
 
-        {/* My Position */}
+        {/* My Position — wallet gated, feature coming soon */}
         {activeTab === "my-position" && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-xl mx-auto"
           >
-            <div className="glass-card p-8">
-              <div className="text-center mb-8">
-                <div className="w-20 h-20 rounded-full gradient-gold flex items-center justify-center text-4xl mx-auto mb-4">
-                  🏇
-                </div>
-                <p className="text-foreground/50 text-sm mb-1">Your Current Rank</p>
-                <p className="font-display text-5xl font-bold text-gradient-gold">#{personalStats.rank}</p>
+            <div className="glass-card p-10 text-center">
+              <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mx-auto mb-6">
+                <span className="text-3xl">🔒</span>
               </div>
-
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="glass-card p-4 text-center">
-                  <p className="text-xs text-foreground/50">Total Points</p>
-                  <p className="font-display text-2xl font-bold text-primary">{personalStats.points.toLocaleString()}</p>
-                </div>
-                <div className="glass-card p-4 text-center">
-                  <p className="text-xs text-foreground/50">Races Won</p>
-                  <p className="font-display text-2xl font-bold text-primary">{personalStats.wins}</p>
-                </div>
-              </div>
-
-              <div className="glass-card p-4 mb-6">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-foreground/60">Rank #{personalStats.rank}</span>
-                  <span className="text-sm text-foreground/60">Rank #{personalStats.nextRank}</span>
-                </div>
-                <div className="h-3 bg-card/40 rounded-full overflow-hidden mb-2">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: "85%" }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="h-full gradient-gold rounded-full"
-                  />
-                </div>
-                <p className="text-center text-sm text-foreground/50">
-                  {personalStats.pointsToNext} points to rank up
-                </p>
-              </div>
-
-              <button className="w-full gradient-gold text-primary-foreground font-display text-sm tracking-widest py-4 rounded-lg hover:opacity-90 transition-opacity uppercase">
-                Join League Challenge
-              </button>
+              <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                Connect Your Wallet to See Your Position
+              </h3>
+              <p className="text-foreground/60 text-sm max-w-sm mx-auto mb-6">
+                Personal rank tracking requires a connected wallet. This feature is coming soon.
+              </p>
+              <span className="inline-block font-display text-xs tracking-widest text-primary uppercase px-4 py-2 rounded-full border border-primary/30 bg-primary/5">
+                Feature Coming Soon
+              </span>
             </div>
           </motion.div>
         )}

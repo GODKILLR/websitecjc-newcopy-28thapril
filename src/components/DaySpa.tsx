@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Sparkles, Clock, Droplets, Crown, ChevronRight, AlertCircle } from "lucide-react";
 
 const rarityMultipliers: Record<string, number> = {
@@ -58,10 +59,10 @@ const DaySpa = () => {
             Exclusive Feature
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-gradient-gold mb-4">
-            Day Spa
+            Run the Spa. Collect the Fees.
           </h2>
           <p className="text-foreground/60 max-w-2xl mx-auto">
-            Members-only facility for restoring your racehorses' condition. Bid for operating rights or queue for a wash to restore full racing performance.
+            Bid for spa operating windows. Set your washing fee. Every member who restores their horse pays you. Two spas. Continuous 4 hour shifts. Real CJC Coin earnings every cycle.
           </p>
         </motion.div>
 
@@ -130,9 +131,9 @@ const DaySpa = () => {
                     </div>
 
                     <div className="flex gap-2">
-                      <button className="flex-1 gradient-gold text-primary-foreground font-display text-sm py-3 rounded-lg hover:opacity-90 transition-opacity">
+                      <Link to="/download" className="flex-1 gradient-gold text-primary-foreground font-display text-sm py-3 rounded-lg hover:opacity-90 transition-opacity text-center">
                         Place Bid
-                      </button>
+                      </Link>
                       <button className="glass-card px-4 py-3 rounded-lg hover:border-primary/50 transition-colors">
                         Buyout
                       </button>

@@ -35,9 +35,8 @@ const testimonials = [
 ];
 
 const socialStats = [
-  { platform: "Discord", icon: Disc, members: "45,000+", color: "text-indigo-400" },
-  { platform: "Twitter", icon: Twitter, members: "128,000+", color: "text-sky-400" },
-  { platform: "Players", icon: Users, members: "85,000+", color: "text-emerald-400" },
+  { platform: "Players Live Across the Globe", icon: Users, members: "450+", color: "text-emerald-400" },
+  { platform: "Distributed as Direct In-Game Rewards in the Last 4 Months", icon: Trophy, members: "$100,000+", color: "text-primary" },
 ];
 
 const CommunitySection = () => {
@@ -67,15 +66,15 @@ const CommunitySection = () => {
             Community
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-gradient-gold mb-4">
-            Join the Racing Community
+            Join the Climax Jockey Club
           </h2>
           <p className="text-foreground/60 max-w-2xl mx-auto">
-            Connect with thousands of players worldwide. Share strategies, celebrate wins, and compete in exclusive events.
+            Thousands of riders racing daily across Discord X and Telegram. Tournament alerts. Strategy threads. Real winners.
           </p>
         </motion.div>
 
         {/* Social Stats */}
-        <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-12">
           {socialStats.map((stat, i) => (
             <motion.div
               key={stat.platform}

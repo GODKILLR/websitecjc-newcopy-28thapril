@@ -58,10 +58,10 @@ const WalletPreview = () => {
             Web3 Ready
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-gradient-gold mb-4">
-            Your Racing Assets
+            Your NFTs. Your Wallet. Your Asset.
           </h2>
           <p className="text-foreground/60 max-w-2xl mx-auto">
-            Connect your wallet to view your NFT collection, CJC balance, and Tycoon Club status. Preview your racing empire.
+            Horses. Jockeys. Items. All stored on chain in your own wallet. Trade them. Rent them. Sell them. The game reads your wallet to know what you own.
           </p>
         </motion.div>
 

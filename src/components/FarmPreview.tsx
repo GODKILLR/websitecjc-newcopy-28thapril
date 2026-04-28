@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Sprout, ShoppingCart, Timer, Package, Diamond, RotateCcw, Info } from "lucide-react";
 
 const crops = [
@@ -50,7 +51,7 @@ const FarmPreview = () => {
             The Farm
           </h2>
           <p className="text-foreground/60 max-w-2xl mx-auto">
-            Cultivate crops and exchange harvests for valuable props. The Mystery Merchant visits daily for exclusive CJC coin deals.
+            Plant crops. Harvest yields. Trade with the daily merchant for CJC Coins. A second income stream that runs while you race. Up to $15 USDT per month from farming alone.
           </p>
         </motion.div>
 
@@ -159,9 +160,9 @@ const FarmPreview = () => {
                         </div>
                       </div>
 
-                      <button className="w-full mt-4 gradient-gold text-primary-foreground font-display text-sm tracking-widest py-3 rounded-lg hover:opacity-90 transition-opacity">
+                      <Link to="/download" className="block w-full mt-4 gradient-gold text-primary-foreground font-display text-sm tracking-widest py-3 rounded-lg hover:opacity-90 transition-opacity text-center">
                         Plant Crop
-                      </button>
+                      </Link>
                     </motion.div>
                   </div>
                 </motion.div>

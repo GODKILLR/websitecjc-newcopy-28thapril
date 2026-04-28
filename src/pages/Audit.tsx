@@ -54,11 +54,6 @@ const Audit = () => {
               desc: "All Racehorse, Jockey and Item NFT minting, trading and ownership contracts are independently reviewed.",
             },
             {
-              icon: Eye,
-              title: "Token Contract (CJC)",
-              desc: "The CJC token contract is audited for minting limits, transfer logic and any admin key risks.",
-            },
-            {
               icon: ShieldCheck,
               title: "Marketplace Contracts",
               desc: "Buy, sell and trade logic on the CJC marketplace is verified to ensure funds always reach the correct wallet.",

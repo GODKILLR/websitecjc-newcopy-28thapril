@@ -82,7 +82,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.35 }}
           className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide text-foreground/90 mb-6"
         >
-          OWN A <span className="text-primary">RACEHORSE</span>. RACE IT AGAINST THE <span className="text-primary">WORLD</span>.
+          RACE. WIN. GET PAID IN <span className="text-primary">REAL USDT</span>.
         </motion.h2>
 
         <motion.p
@@ -91,7 +91,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-base sm:text-lg md:text-xl text-foreground/70 font-body max-w-2xl mx-auto mb-10 font-light tracking-wide"
         >
-          Master gate timing, manage stamina, outrace real players — and win real rewards.
+          Skill decides the race. Your wallet sees the reward. Win CJC Coins that convert to USDT at a fixed 100 to 1 rate.
         </motion.p>
 
         <motion.div

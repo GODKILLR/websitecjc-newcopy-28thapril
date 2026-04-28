@@ -46,8 +46,7 @@ const AmbassadorPreview = () => (
               Become a CJC Ambassador
             </h2>
             <p className="text-foreground/70 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              Represent CJC Race in your community. Earn exclusive rewards, early
-              access, and recognition for growing the ecosystem.
+              Represent CJC Race in your community. Earn exclusive rewards. Get early access. Up to $500 monthly for top tier ambassadors.
             </p>
           </div>
 
@@ -87,7 +86,7 @@ const AmbassadorPreview = () => (
               to="/ambassador"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-background font-display text-sm tracking-widest px-8 py-3.5 rounded-lg transition-colors uppercase"
             >
-              Learn More <ArrowRight className="w-4 h-4" />
+              Apply Now <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
