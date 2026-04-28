@@ -55,9 +55,9 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-0 border-b border-border/30">
-      <div className="container flex items-center justify-between h-16 md:h-20">
+      <div className="container flex items-center justify-between h-20 md:h-24">
         <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0 })}>
-          <img src={logo} alt="CJC Race" className="h-10 md:h-12 w-auto" width={48} height={48} decoding="async" />
+          <img src={logo} alt="CJC Race" className="h-16 md:h-20 w-auto" width={80} height={80} decoding="async" />
         </Link>
 
         {/* Desktop */}
