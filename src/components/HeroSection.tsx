@@ -91,7 +91,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-base sm:text-lg md:text-xl text-foreground/70 font-body max-w-2xl mx-auto mb-10 font-light tracking-wide"
         >
-          Skill decides the race. Your wallet sees the reward. Win CJC Coins that convert to USDT at a fixed 100 to 1 rate.
+          Master gate timing, manage stamina, outrace real players, and win real USDT rewards.
         </motion.p>
 
         <motion.div
