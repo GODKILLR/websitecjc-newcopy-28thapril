@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, Lock, Wallet, ChevronRight } from "lucide-react";
 import logo from "@/assets/cjc-logo.webp";
 import heroBg from "@/assets/gameplay-bg.webp";
 
 const AppLogin = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
       {/* Background */}
@@ -52,7 +53,7 @@ const AppLogin = () => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                window.location.href = "/app/home";
+                navigate("/app/home");
               }}
               className="space-y-4"
             >
