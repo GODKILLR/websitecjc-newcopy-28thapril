@@ -17,6 +17,17 @@ import GameModes from "./pages/GameModes.tsx";
 import Ambassador from "./pages/Ambassador.tsx";
 import DownloadPage from "./pages/Download.tsx";
 import News from "./pages/News.tsx";
+import Marketplace from "./pages/Marketplace.tsx";
+import MarketplaceHub from "./pages/MarketplaceHub.tsx";
+import NFTGuide from "./pages/NFTGuide.tsx";
+import AppLogin from "./pages/app/AppLogin.tsx";
+import AppHome from "./pages/app/AppHome.tsx";
+import AppMarket from "./pages/app/AppMarket.tsx";
+import AppDashboard from "./pages/app/AppDashboard.tsx";
+import AppWallet from "./pages/app/AppWallet.tsx";
+import AppTycoon from "./pages/app/AppTycoon.tsx";
+import AppRecords from "./pages/app/AppRecords.tsx";
+import AppSettings from "./pages/app/AppSettings.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
@@ -42,6 +53,17 @@ const App = () => (
           <Route path="/ambassador" element={<Ambassador />} />
           <Route path="/download" element={<DownloadPage />} />
           <Route path="/news" element={<News />} />
+          <Route path="/marketplace" element={<MarketplaceHub />} />
+          <Route path="/shop" element={<Marketplace />} />
+          <Route path="/nfts" element={<NFTGuide />} />
+          <Route path="/app/login" element={<AppLogin />} />
+          <Route path="/app/home" element={<AppHome />} />
+          <Route path="/app/market" element={<AppMarket />} />
+          <Route path="/app/dashboard" element={<AppDashboard />} />
+          <Route path="/app/wallet" element={<AppWallet />} />
+          <Route path="/app/tycoon" element={<AppTycoon />} />
+          <Route path="/app/records" element={<AppRecords />} />
+          <Route path="/app/settings" element={<AppSettings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -69,7 +69,7 @@ const CommunitySection = () => {
             Join the Climax Jockey Club
           </h2>
           <p className="text-foreground/60 max-w-2xl mx-auto">
-            Thousands of riders racing daily across Discord X and Telegram. Tournament alerts. Strategy threads. Real winners.
+            Thousands of riders racing daily across Discord, X and Telegram. Tournament alerts. Strategy threads. Real winners.
           </p>
         </motion.div>
 

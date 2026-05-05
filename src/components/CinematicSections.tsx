@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Crown, Star, Shield, Sparkles, ArrowRight, ChevronRight, Zap, Wind, Flame, Hourglass, Heart } from "lucide-react";
 import adventureBanner from "@/assets/gameplay-bg.webp";
 import nftBanner from "@/assets/nft-banner.webp";
-import leagueBanner from "@/assets/league-banner.webp";
 import horse1 from "@/assets/horses/1.webp";
 import horse2 from "@/assets/horses/2.webp";
 import horse3 from "@/assets/horses/3.webp";
@@ -314,7 +313,7 @@ const StableSection = () => (
   </div>
 );
 
-// Standard cinematic sections (Gameplay & League)
+// Cinematic gameplay banner section
 const standardSections = [
   {
     tag: "GAMEPLAY",
@@ -322,13 +321,6 @@ const standardSections = [
     desc: "Take control of your jockey in real time. Time the gate exit. Manage stamina. Whip at the right second. Champion Stakes runs a new race every 30 minutes throughout the day with reward pools that scale up as the membership base grows.",
     img: adventureBanner,
     cta: { label: "Learn More", href: "/game-modes", internal: true },
-  },
-  {
-    tag: "LEAGUE",
-    title: "Compete in League Challenges",
-    desc: "Pick your distance. Get matched instantly. Race 24/7. Every race earns season points whether you finish first or last. Consistency beats occasional big wins. Race frequently and your points compound faster.",
-    img: leagueBanner,
-    cta: { label: "Play Now", href: "/game-modes", internal: true },
   },
 ];
 
@@ -353,7 +345,33 @@ const CinematicSections = () => {
             <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-4 tracking-wide select-text">
               {standardSections[0].title}
             </h2>
-            <p className="text-foreground/70 text-sm sm:text-base md:text-lg mb-6 leading-relaxed select-text">{standardSections[0].desc}</p>
+            <p className="text-foreground/70 text-sm sm:text-base md:text-lg mb-5 leading-relaxed select-text">
+              Take control of your jockey in real time.
+            </p>
+            <div className="flex flex-wrap gap-2 mb-6 select-text">
+              {[
+                { icon: Zap, label: "Gate Timing", color: "#F59E0B" },
+                { icon: Hourglass, label: "Stamina", color: "#60A5FA" },
+                { icon: Flame, label: "Whip Timing", color: "#10B981" },
+              ].map((skill) => (
+                <div
+                  key={skill.label}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full border"
+                  style={{
+                    background: `${skill.color}12`,
+                    borderColor: `${skill.color}40`,
+                  }}
+                >
+                  <skill.icon className="w-3.5 h-3.5" style={{ color: skill.color }} />
+                  <span className="text-xs font-display tracking-wider text-foreground/85 uppercase">
+                    {skill.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="text-foreground/60 text-sm md:text-base mb-6 leading-relaxed select-text">
+              Champion Stakes runs a new race every 30 minutes with reward pools that scale up as the membership base grows.
+            </p>
             <Link
               to={standardSections[0].cta.href}
               className="inline-block gradient-gold px-6 py-3 font-display text-sm tracking-widest text-primary-foreground rounded-lg hover:opacity-90 transition-opacity uppercase select-none"
@@ -366,35 +384,6 @@ const CinematicSections = () => {
 
       {/* Section 2: YOUR STABLE (overhauled) */}
       <StableSection />
-
-      {/* Section 3: League */}
-      <div className="relative mb-2">
-        <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
-          <img src={standardSections[1].img} alt={standardSections[1].title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40 md:to-transparent md:via-background/70" />
-        </div>
-        <div className="absolute inset-0 flex items-center justify-start">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="max-w-lg px-4 sm:px-6 md:pl-24 md:pr-8"
-          >
-            <span className="font-display text-xs tracking-[0.3em] text-primary uppercase">{standardSections[1].tag}</span>
-            <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-4 tracking-wide">
-              {standardSections[1].title}
-            </h2>
-            <p className="text-foreground/70 text-sm sm:text-base md:text-lg mb-6 leading-relaxed">{standardSections[1].desc}</p>
-            <Link
-              to={standardSections[1].cta.href}
-              className="inline-block gradient-gold px-6 py-3 font-display text-sm tracking-widest text-primary-foreground rounded-lg hover:opacity-90 transition-opacity uppercase"
-            >
-              {standardSections[1].cta.label}
-            </Link>
-          </motion.div>
-        </div>
-      </div>
     </section>
   );
 };

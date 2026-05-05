@@ -61,7 +61,7 @@ const WalletPreview = () => {
             Your NFTs. Your Wallet. Your Asset.
           </h2>
           <p className="text-foreground/60 max-w-2xl mx-auto">
-            Horses. Jockeys. Items. All stored on chain in your own wallet. Trade them. Rent them. Sell them. The game reads your wallet to know what you own.
+            Horses. Jockeys. Items. All stored on chain in your own wallet. The game reads your wallet to know what you own.
           </p>
         </motion.div>
 

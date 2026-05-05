@@ -4,23 +4,23 @@ import { BookOpen, ChevronRight, Calculator, ChevronLeft, Sparkles, Target, Wind
 
 const steps = [
   {
-    title: "Download Free",
+    title: "Download & Sign Up",
     icon: "📲",
-    content: "Sign up with your email. Race in free mode using assigned horses. No wallet needed to get started.",
+    content: "Download the app on PC, Mac, iOS or Android. Sign up with your email. Race in free mode using assigned horses. No wallet needed to get started.",
     details: [
-      { label: "Racehorse NFT", value: "Required for racing", icon: "🐎" },
-      { label: "Jockey NFT", value: "Required for racing", icon: "🏇" },
-      { label: "Item NFTs", value: "Up to 4 per race set", icon: "🎋" },
+      { label: "Multi-Platform", value: "PC, Mac, iOS, Android", icon: "💻" },
+      { label: "Email Sign Up", value: "No wallet required", icon: "✉️" },
+      { label: "Free Play", value: "Race with assigned horses", icon: "🎮" },
     ],
   },
   {
-    title: "Get Your NFTs",
+    title: "Purchase Your NFTs",
     icon: "🐎",
-    content: "Buy a Mystery Box from the marketplace. Build your racing set with Racehorse Jockey and Item NFTs. Become a Tycoon Club member.",
+    content: "Buy a Mystery Box from the marketplace to unlock member mode. Each box includes a Racehorse, a Jockey, items, and an automatic Tycoon Club membership.",
     details: [
-      { label: "Speed", value: "Determines min/max speeds", icon: "🚀" },
-      { label: "Burst", value: "Acceleration when whipped", icon: "⚡" },
-      { label: "Stamina", value: "Depletes during race", icon: "🔋" },
+      { label: "Racehorse NFT", value: "Your primary racing asset", icon: "🐎" },
+      { label: "Jockey NFT", value: "Rides your horse in every race", icon: "🏇" },
+      { label: "Membership", value: "Tycoon Club access included", icon: "👑" },
     ],
   },
   {

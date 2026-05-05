@@ -116,7 +116,7 @@ const LeaderboardSection = () => {
                   : "glass-card text-foreground/70 hover:text-foreground"
               }`}
             >
-              {tab === "rankings" && "Rankings"}
+              {tab === "rankings" && "Monthly Rankings"}
               {tab === "rewards" && "Season Rewards"}
               {tab === "my-position" && "My Position"}
             </button>
@@ -189,38 +189,26 @@ const LeaderboardSection = () => {
           </motion.div>
         )}
 
-        {/* Rewards */}
+        {/* Rewards — coming soon */}
         {activeTab === "rewards" && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-2xl mx-auto"
+            className="max-w-xl mx-auto"
           >
-            <div className="space-y-4">
-              {mockLeaderboard.rewards.map((reward, i) => (
-                <motion.div
-                  key={reward.rank}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="glass-card p-4 sm:p-6 flex items-center gap-3 sm:gap-4"
-                >
-                  <div className="text-2xl sm:text-3xl shrink-0">{reward.badge}</div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-display text-base sm:text-lg">{reward.rank} Place</p>
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2">
-                      <div className="flex items-center gap-2">
-                        <Star className="w-4 h-4 text-primary shrink-0" />
-                        <span className="text-xs sm:text-sm text-foreground/70">{reward.reward}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Medal className="w-4 h-4 text-primary shrink-0" />
-                        <span className="text-xs sm:text-sm text-foreground/70">{reward.prize}</span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="glass-card p-10 text-center">
+              <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mx-auto mb-6">
+                <Trophy className="w-7 h-7 text-primary" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                Season Rewards Coming Soon
+              </h3>
+              <p className="text-foreground/60 text-sm max-w-sm mx-auto mb-6">
+                Reward tiers and prize structures will be published once the dev team finalises the season parameters.
+              </p>
+              <span className="inline-block font-display text-xs tracking-widest text-primary uppercase px-4 py-2 rounded-full border border-primary/30 bg-primary/5">
+                Coming Soon
+              </span>
             </div>
           </motion.div>
         )}

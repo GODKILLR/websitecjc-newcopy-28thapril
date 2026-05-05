@@ -15,7 +15,7 @@ const navLinks: NavLink[] = [
   { label: "Home", to: "/" },
   { label: "Game Info", to: "/", hash: "#game-info" },
   { label: "How to Play", to: "/", hash: "#how-to-play" },
-  { label: "Marketplace", external: "https://market.cjcrace.io" },
+  { label: "Marketplace", to: "/marketplace" },
   { label: "WhitePaper", external: "https://docs.cjcrace.io/cjc-race-white-paper" },
 ];
 
@@ -74,15 +74,13 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <a
-            href="https://market.cjcrace.io"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/app/login"
             className="flex items-center gap-2 border border-primary/40 text-primary font-display text-sm tracking-wider px-5 py-2.5 rounded-lg hover:bg-primary/10 transition-colors uppercase"
           >
             <Wallet className="w-4 h-4" />
             Connect Wallet
-          </a>
+          </Link>
           <Link
             to="/download"
             className="flex items-center gap-2 gradient-gold text-primary-foreground font-display text-sm tracking-wider px-6 py-2.5 rounded-lg hover:opacity-90 transition-opacity uppercase"
@@ -122,15 +120,14 @@ const Navbar = () => {
                   {link.label}
                 </button>
               ))}
-              <a
-                href="https://market.cjcrace.io"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/app/login"
+                onClick={() => setOpen(false)}
                 className="flex items-center justify-center gap-2 border border-primary/40 text-primary font-display text-sm tracking-wider px-6 py-2.5 rounded-lg mt-2 uppercase"
               >
                 <Wallet className="w-4 h-4" />
                 Connect Wallet
-              </a>
+              </Link>
               <Link
                 to="/download"
                 onClick={() => setOpen(false)}
